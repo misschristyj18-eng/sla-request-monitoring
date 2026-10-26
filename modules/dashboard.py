@@ -14,22 +14,24 @@ st.markdown(
     """
     <style>
     .dashboard-title {
-        font-size: 2.8rem;
+        font-size: 3.2rem;
         font-weight: 900;
-        color: #111111;
-        line-height: 1.2;
-        margin-top: 0.2rem;
-        margin-bottom: 1.1rem;
-        letter-spacing: 0.2px;
+        color: #111827;
+        line-height: 1.15;
+        margin-top: 0.4rem;
+        margin-bottom: 1.6rem;
+        letter-spacing: -0.03em;
         display: block;
         text-align: left;
     }
 
     .kpi-box {
-        background-color: #efefef;
-        border: 1px solid #3b3b3b;
-        padding: 18px 16px 12px 16px;
-        min-height: 130px;
+        background: linear-gradient(135deg, #f9fafb 0%, #eef2ff 100%);
+        border: 1px solid #dbe2f0;
+        border-radius: 18px;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+        padding: 28px 20px 22px 20px;
+        min-height: 180px;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -38,16 +40,26 @@ st.markdown(
     }
 
     .kpi-box .value {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: #111111;
-        line-height: 1.1;
+        font-size: 3.2rem;
+        font-weight: 900;
+        color: #0f172a;
+        line-height: 1;
+        letter-spacing: -0.05em;
     }
 
     .kpi-box .label {
-        font-size: 1.05rem;
-        color: #111111;
+        font-size: 1.1rem;
+        color: #1f2937;
+        margin-top: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+    }
+
+    .kpi-box .small-note {
+        font-size: 0.8rem;
+        color: #475569;
         margin-top: 0.35rem;
+        font-weight: 600;
     }
     </style>
     """,
@@ -75,7 +87,7 @@ def risk_bg(value: int) -> str:
 
 def show(df: pd.DataFrame, role: str):
     st.markdown(
-        '<div class="dashboard-title">Administrator Dashboard - WIREFRAME (sample made from the dataset)</div>',
+        '<div class="dashboard-title">Administrator Dashboard</div>',
         unsafe_allow_html=True,
     )
 
@@ -103,6 +115,7 @@ def show(df: pd.DataFrame, role: str):
             <div class="kpi-box">
                 <div class="value">{total_requests}</div>
                 <div class="label">Total requests</div>
+                <div class="small-note">All records</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -114,6 +127,7 @@ def show(df: pd.DataFrame, role: str):
             <div class="kpi-box">
                 <div class="value">{completed_requests}</div>
                 <div class="label">Completed requests</div>
+                <div class="small-note">Closed successfully</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -125,6 +139,7 @@ def show(df: pd.DataFrame, role: str):
             <div class="kpi-box">
                 <div class="value">{breach_rate:.1f}%</div>
                 <div class="label">SLA breach rate</div>
+                <div class="small-note">Past performance</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -136,6 +151,7 @@ def show(df: pd.DataFrame, role: str):
             <div class="kpi-box">
                 <div class="value">{pending_requests}</div>
                 <div class="label">Open (Pending) requests</div>
+                <div class="small-note">Needs review</div>
             </div>
             """,
             unsafe_allow_html=True,
