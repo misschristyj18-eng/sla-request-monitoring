@@ -188,20 +188,42 @@ def show(df: pd.DataFrame, role: str):
 
     # Flagged requests section
     s2.subheader("Flagged for human review")
-    thr = 0.50
+    thr = st.slider("Show requests with delay risk at or above", 0.0, 1.0, 0.50, 0.05)
     if open_df.empty:
         s2.info("There are no open (Pending) requests in this dataset.")
         return
+
     scored = pd.concat([open_df, predict_frame(model, open_df)], axis=1)
-    flagged = scored[scored["Delay_Risk"] >= thr].sort_values("Delay_Risk", ascending=False)
+    flagged = scored[scored["Delay_Risk"] >= thr].sort_values("Delay_Risk", ascending=False).copy()
     flagged["Data_Warning"] = flagged["Missing_Fields"].map(lambda n: "Queue length missing" if n else "")
+    flagged["Risk_Level"] = pd.cut(
+        flagged["Delay_Risk"],
+        bins=[-1, 0.39, 0.59, 0.79, 1.01],
+        labels=["Low Risk", "Medium Risk", "High Risk", "Critical Risk"],
+        right=False,
+    )
+
+    def color_for_risk(value):
+        if value >= 80:
+            return "background-color: #d32f2f; color: white; font-weight: 700;"
+        if value >= 60:
+            return "background-color: #f57c00; color: white; font-weight: 700;"
+        if value >= 40:
+            return "background-color: #fdd835; color: #111111; font-weight: 700;"
+        return "background-color: #2e7d32; color: white; font-weight: 700;"
 
     s2.write(f"**{len(flagged)} of {len(scored)} open requests** are at {thr * 100:.0f}% risk or higher.")
-    show_cols = ["Request_ID", "Service_Type", "Assigned_Office", "Delay_Risk"]
-    display_df = flagged[show_cols].copy()
-    display_df["Delay_Risk"] = (display_df["Delay_Risk"] * 100).round(0).astype(int).astype(str) + "%"
-    display_df.columns = ["Request_ID", "Service", "Office", "Delay risk"]
-    s2.dataframe(display_df.head(10), use_container_width=True, hide_index=True)
+    display_df = flagged[["Request_ID", "Service_Type", "Assigned_Office", "Delay_Risk", "Risk_Level"]].copy()
+    display_df["Delay_Risk"] = (display_df["Delay_Risk"] * 100).round(0).astype(int)
+    display_df.columns = ["Request_ID", "Service", "Office", "Delay risk (%)", "Risk level"]
+
+    styled = display_df.style.apply(
+        lambda row: [
+            color_for_risk(row["Delay risk (%)"]) if col == "Delay risk (%)" else "" for col in row.index
+        ],
+        axis=1,
+    )
+    s2.dataframe(styled, use_container_width=True, hide_index=True)
 
     st.write("")
     st.info("Advice only - staff decide. [Review] [Override with reason]")
