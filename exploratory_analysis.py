@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-from modules.data_processing import labeled_subset
+from data_processing import labeled_subset
 
 
 def rate_table(labeled: pd.DataFrame, by: str) -> pd.DataFrame:

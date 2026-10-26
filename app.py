@@ -1,12 +1,15 @@
 import pandas as pd
 import streamlit as st
 
-from modules import data_processing as dp
-from modules import exploratory_analysis, prediction, dashboard, system_design
+import data_processing as dp
+import exploratory_analysis
+import prediction
+import dashboard
+import system_design
 
 st.set_page_config(page_title="Student Service Request Monitoring", layout="wide")
 
-SAMPLE = "data/sample_service_requests.csv"
+SAMPLE = "sample_service_requests.csv"
 
 
 @st.cache_data

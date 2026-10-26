@@ -8,11 +8,11 @@ import streamlit as st
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 
-from modules.data_processing import (CAT_FEATURES, NUM_FEATURES, FEATURES, CHOICES,
-                                     make_X, labeled_subset)
+from data_processing import (CAT_FEATURES, NUM_FEATURES, FEATURES, CHOICES,
+                             make_X, labeled_subset)
 
-MODEL_PATH = "models/trained_model.joblib"
-INFO_PATH = "models/model_info.json"
+MODEL_PATH = "trained_model.joblib"
+INFO_PATH = "model_info.json"
 
 
 @st.cache_resource
@@ -194,7 +194,7 @@ def show(df: pd.DataFrame):
                          f"recall {recall_score(yt, pr, zero_division=0):.3f}, "
                          f"F1 {f1_score(yt, pr, zero_division=0):.3f}, "
                          f"confusion matrix {confusion_matrix(yt, pr, labels=[0, 1]).tolist()}")
-                st.success("These numbers should match the midterm report (0.933 / 0.931 / 1.000 / 0.964).")
+                st.success("These numbers should match the midterm report (0.933 / 0.931 / 0.964 / 0.964).")
 
         st.subheader("Limitations")
         st.markdown(

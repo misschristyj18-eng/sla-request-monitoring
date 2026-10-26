@@ -4,9 +4,9 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-from modules.data_processing import labeled_subset
-from modules.exploratory_analysis import rate_table
-from modules.prediction import load_model, load_info, predict_frame
+from data_processing import labeled_subset
+from exploratory_analysis import rate_table
+from prediction import load_model, load_info, predict_frame
 
 
 def show(df: pd.DataFrame, role: str):

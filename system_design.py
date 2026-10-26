@@ -30,9 +30,9 @@ def show():
 
     st.subheader("Updated use case diagram")
     try:
-        st.image("assets/use_case_diagram.png", use_container_width=True)
+        st.image("use_case_diagram.png", use_container_width=True)
     except Exception:
-        st.error("Use case diagram not found: assets/use_case_diagram.png")
+        st.error("Use case diagram not found: use_case_diagram.png")
     st.caption("Blue = new analytics use cases. Grey = existing use cases.")
 
     st.subheader("Analytical process / decision workflow")
