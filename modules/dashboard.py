@@ -13,29 +13,38 @@ from modules.prediction import load_info, load_model, predict_frame
 st.markdown(
     """
     <style>
+    .dashboard-title {
+        font-size: 2.7rem;
+        font-weight: 900;
+        color: #111111;
+        line-height: 1.2;
+        margin-top: 0.2rem;
+        margin-bottom: 1.1rem;
+        letter-spacing: 0.2px;
+        display: block;
+        text-align: left;
+    }
     .kpi-box {
         background-color: #f0f0f0;
         border: 1px solid #3b3b3b;
-        padding: 18px 16px 12px 16px;
-        border-radius: 0px;
+        padding: 18px 14px 12px 14px;
         text-align: center;
         min-height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .kpi-box .value {
-        font-size: 2rem;
-        font-weight: 700;
+        font-size: 2.4rem;
+        font-weight: 800;
         color: #111111;
-        line-height: 1.2;
+        line-height: 1.1;
     }
     .kpi-box .label {
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: #111111;
-        margin-top: 0.25rem;
-    }
-    .dashboard-title {
-        font-size: 2.1rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
+        margin-top: 0.30rem;
     }
     </style>
     """,
@@ -59,54 +68,67 @@ def risk_bg(value: int) -> str:
 
 
 def show(df: pd.DataFrame, role: str):
-    st.markdown('<div class="dashboard-title">Administrator Dashboard - WIREFRAME (sample made from the dataset)</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="dashboard-title">Administrator Dashboard - WIREFRAME (sample made from the dataset)</div>',
+        unsafe_allow_html=True,
+    )
 
     model, info = load_model(), load_info()
     lab = labeled_subset(df)
 
     if role == "Requester":
-        st.error("Requesters can only submit and track their own requests. The risk dashboard is for Office Staff and Administrators. (Change role in the sidebar to see it.)")
+        st.error(
+            "Requesters can only submit and track their own requests. The risk dashboard is for Office Staff and Administrators."
+        )
         return
 
     open_df = df[df["Status"].astype(str).str.lower() == "pending"].copy()
 
-    # KPI cards
+    total_requests = len(df)
+    completed_requests = len(lab)
+    breach_rate = lab["SLA_Breached"].mean() * 100
+    pending_requests = len(open_df)
+
     k1, k2, k3, k4 = st.columns(4)
+
     with k1:
         st.markdown(
             f"""
             <div class="kpi-box">
-                <div class="value">{len(df):,}</div>
+                <div class="value">{total_requests}</div>
                 <div class="label">Total requests</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
+
     with k2:
         st.markdown(
             f"""
             <div class="kpi-box">
-                <div class="value">{len(lab):,}</div>
+                <div class="value">{completed_requests}</div>
                 <div class="label">Completed requests</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
+
     with k3:
         st.markdown(
             f"""
             <div class="kpi-box">
-                <div class="value">{lab['SLA_Breached'].mean() * 100:.1f}%</div>
+                <div class="value">{breach_rate:.1f}%</div>
                 <div class="label">SLA breach rate</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
+
     with k4:
         st.markdown(
             f"""
             <div class="kpi-box">
-                <div class="value">{len(open_df):,}</div>
+                <div class="value">{pending_requests}</div>
                 <div class="label">Open (Pending) requests</div>
             </div>
             """,
@@ -115,10 +137,8 @@ def show(df: pd.DataFrame, role: str):
 
     st.write("")
 
-    # Left / right chart layout
     c1, c2 = st.columns(2)
 
-    # Office breach rate (orange/red palette)
     office_df = rate_table(lab, "Assigned_Office")
     office_fig = px.bar(
         office_df,
@@ -141,7 +161,6 @@ def show(df: pd.DataFrame, role: str):
     )
     c1.plotly_chart(office_fig, use_container_width=True)
 
-    # Queue status (blue palette)
     q = (
         open_df["Queue_Category"]
         .astype(str)
@@ -171,8 +190,8 @@ def show(df: pd.DataFrame, role: str):
     )
     c2.plotly_chart(qplot, use_container_width=True)
 
-    # Service volume chart (blue palette)
     s1, s2 = st.columns(2)
+
     service_counts = df["Service_Type"].value_counts().sort_values()
     service_counts_df = service_counts.rename_axis("Service type").reset_index(name="Number of requests")
     svc_fig = px.bar(
@@ -195,7 +214,6 @@ def show(df: pd.DataFrame, role: str):
     )
     s1.plotly_chart(svc_fig, use_container_width=True)
 
-    # Human review table with threshold slider and color-coded risk
     s2.subheader("Flagged for human review")
     thr = st.slider("Show requests with delay risk at or above", 0.0, 1.0, 0.50, 0.05)
     if open_df.empty:
@@ -204,18 +222,21 @@ def show(df: pd.DataFrame, role: str):
 
     scored = pd.concat([open_df, predict_frame(model, open_df)], axis=1)
     flagged = scored[scored["Delay_Risk"] >= thr].sort_values("Delay_Risk", ascending=False).copy()
-    flagged["Data_Warning"] = flagged["Missing_Fields"].map(lambda n: "Queue length missing" if n else "")
+    flagged["Risk_Level"] = pd.cut(
+        flagged["Delay_Risk"],
+        bins=[-1, 0.39, 0.59, 0.79, 1.01],
+        labels=["Low Risk", "Medium Risk", "High Risk", "Critical Risk"],
+        right=False,
+    )
 
     s2.write(f"**{len(flagged)} of {len(scored)} open requests** are at {thr * 100:.0f}% risk or higher.")
 
-    display_df = flagged[["Request_ID", "Service_Type", "Assigned_Office", "Delay_Risk", "Risk_Level"]].copy()
+    display_df = flagged[["Request_ID", "Service_Type", "Assigned_Office", "Delay_Risk"]].copy()
     display_df["Delay_Risk"] = (display_df["Delay_Risk"] * 100).round(0).astype(int)
-    display_df.columns = ["Request_ID", "Service", "Office", "Delay risk (%)", "Risk level"]
+    display_df.columns = ["Request_ID", "Service", "Office", "Delay risk (%)"]
 
     styled = display_df.style.apply(
-        lambda row: [
-            risk_bg(row["Delay risk (%)"]) if col == "Delay risk (%)" else "" for col in row.index
-        ],
+        lambda row: [risk_bg(row["Delay risk (%)"]) if "Delay risk (%)" in row.index else "" for _ in [0]],
         axis=1,
     )
     s2.dataframe(styled, use_container_width=True, hide_index=True)
@@ -223,7 +244,6 @@ def show(df: pd.DataFrame, role: str):
     st.write("")
     st.info("Advice only - staff decide. [Review] [Override with reason]")
 
-    # Staff decision section
     st.subheader("Staff decision (human in the loop)")
     if role != "Office Staff":
         st.warning("Only Office Staff can record a final decision. Administrators can view results.")
@@ -232,31 +252,42 @@ def show(df: pd.DataFrame, role: str):
     else:
         log = st.session_state.setdefault("decision_log", [])
         rid = st.selectbox("Choose a flagged request", flagged["Request_ID"].tolist())
-        choice = st.radio("Your decision", ["Confirm flag (prioritize this request)", "Override flag (not needed)"], horizontal=True)
+        choice = st.radio(
+            "Your decision",
+            ["Confirm flag (prioritize this request)", "Override flag (not needed)"],
+            horizontal=True,
+        )
         why = st.text_area("Reason (required)", placeholder="Example: Student has an urgent scholarship deadline.")
         if st.button("Save decision"):
             if not why.strip():
                 st.error("Please write a reason before saving.")
             else:
                 risk = float(flagged.loc[flagged["Request_ID"] == rid, "Delay_Risk"].iloc[0])
-                log.append({
-                    "Time": f"{datetime.datetime.now():%Y-%m-%d %H:%M:%S}",
-                    "Request_ID": rid,
-                    "Model_Risk": f"{risk * 100:.0f}%",
-                    "Decision": choice.split(" (")[0],
-                    "Reason": why.strip(),
-                    "Model_Version": info["model_version"],
-                    "Decided_by": role,
-                })
+                log.append(
+                    {
+                        "Time": f"{datetime.datetime.now():%Y-%m-%d %H:%M:%S}",
+                        "Request_ID": rid,
+                        "Model_Risk": f"{risk * 100:.0f}%",
+                        "Decision": choice.split(" (")[0],
+                        "Reason": why.strip(),
+                        "Model_Version": info["model_version"],
+                        "Decided_by": role,
+                    }
+                )
                 st.success(f"Decision saved for {rid}. The request itself was not changed automatically.")
         if log:
             st.write("**Decision log (this session)")
             st.dataframe(pd.DataFrame(log), use_container_width=True, hide_index=True)
-            st.download_button("Download decision log", pd.DataFrame(log).to_csv(index=False).encode(), "decision_log.csv", "text/csv")
+            st.download_button(
+                "Download decision log",
+                pd.DataFrame(log).to_csv(index=False).encode(),
+                "decision_log.csv",
+                "text/csv",
+            )
 
     st.subheader("How to read this dashboard")
     st.markdown(
-        "- High queue (>15) -> 100% breached in past data; consider adding staff or sending an alert.\n"
+        "- High queue (>15) → 100% breached in past data; consider adding staff or sending an alert.\n"
         "- Highest-breach office: review workload and steps there first, then compare with the best office.\n"
         "- Recommended human follow-up: open the top flagged requests, check documents, talk to the requester, then confirm or override with a reason.\n"
         f"- Risk scores are advice only (model accuracy {info['metrics_tree']['accuracy']:.3f}, recall {info['metrics_tree']['recall']:.3f}, tested on {info['n_test']} rows)."
