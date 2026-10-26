@@ -61,6 +61,32 @@ st.markdown(
         margin-top: 0.35rem;
         font-weight: 600;
     }
+
+    @media (max-width: 768px) {
+        .dashboard-title {
+            font-size: 2.1rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .kpi-box {
+            min-height: 120px;
+            padding: 18px 10px 14px 10px;
+            border-radius: 14px;
+        }
+
+        .kpi-box .value {
+            font-size: 2.1rem;
+        }
+
+        .kpi-box .label {
+            font-size: 0.9rem;
+        }
+
+        .kpi-box .small-note {
+            font-size: 0.72rem;
+        }
+    }
     </style>
     """,
     unsafe_allow_html=True,
