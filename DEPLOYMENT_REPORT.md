@@ -1,6 +1,6 @@
 # Short Deployment Report
 **Name:** Baclay, Christ John S. | **Section:** BSIS 3-B | **Course:** Systems Analysis and Design
-**Project:** Student Service Request Monitoring (Section B) | **GitHub URL:** https://github.com/misschristyj18-eng/sla-request-monitoring | **Streamlit URL:** pending final public deployment
+**Project:** Student Service Request Monitoring (Section B) | **GitHub URL:** https://github.com/misschristyj18-eng/sla-request-monitoring | **Streamlit URL:** https://sla-request-monitoring-5h66pzruadbw5j9wa5bf2k.streamlit.app/#analytical-process-decision-workflow
 
 ## 1. Reused code (from the midterm notebook)
 - Same cleaning and feature steps: duplicate IDs removed, negative numbers made missing, Submission_Weekday, Queue_Category, and SLA_Breached created.
@@ -44,7 +44,6 @@ These are the sample prediction scenarios for the final deployment report.
 - Missing data is filled with approximation, so staff review remains necessary.
 
 ## 6. Reflection
-This project shows how a midterm machine-learning notebook can be turned into a decision-support information system by preserving the saved model, validating uploaded data, and centering human review. The dashboard is designed to help staff prioritize urgent cases without automating final service decisions.
+This project shows how a midterm machine-learning notebook can be turned into a decision-support information system by preserving the saved model, validating uploaded data, and centering human review in the decision cycle.
 
-## 7. Final public deployment status
-The app code is ready and the repo is prepared for deployment. The final public Streamlit URL and screenshot proof must be added after the app is published to Streamlit Cloud.
+## 7. Deployed and verified on 2026-10-26.

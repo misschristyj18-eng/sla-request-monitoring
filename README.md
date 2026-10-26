@@ -31,9 +31,9 @@ sla-request-monitoring/
 ├── midterm_notebook.ipynb
 ├── train_model.py
 ├── sample_service_requests.csv
-├── models/
-│   ├── trained_model.joblib
-│   └── model_info.json
+├── trained_model.joblib
+├── model_info.json
+├── use_case_diagram.png
 ├── modules/
 │   ├── __init__.py
 │   ├── data_processing.py
@@ -41,11 +41,14 @@ sla-request-monitoring/
 │   ├── prediction.py
 │   ├── dashboard.py
 │   └── system_design.py
+├── models/
+│   └── .gitkeep
 ├── assets/
-│   └── use_case_diagram.png
-└── data/
-    └── sample_service_requests.csv
+│   └── .gitkeep
+└── .gitignore
 ```
+
+Note: the active app code is in `modules/`, while the model artifact and supporting files are stored at the repo root because the app loads them with root-relative paths such as `trained_model.joblib` and `model_info.json`.
 
 ## Model
 The model is the same as the midterm:
@@ -64,9 +67,9 @@ The model is the same as the midterm:
 - The live app URL above is the final deployed version for verification and review.
 
 ## Final submission checklist
-- GitHub repository uploaded
-- Streamlit app deployed
-- App URL verified
-- Screenshots of the main modules captured from the live app
-- Five sample predictions recorded from the Prediction page
-- Report completed with the live app URL and summary of testing
+- [x] GitHub repository uploaded
+- [x] Streamlit app deployed
+- [x] App URL verified
+- [x] Screenshots of the main modules captured from the live app
+- [x] Five sample predictions recorded from the Prediction page
+- [x] Report completed with the live app URL and summary of testing
