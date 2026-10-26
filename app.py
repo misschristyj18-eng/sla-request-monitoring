@@ -1,11 +1,11 @@
 import pandas as pd
 import streamlit as st
 
-import data_processing as dp
-import exploratory_analysis
-import prediction
-import dashboard
-import system_design
+from modules import data_processing as dp
+import modules.exploratory_analysis as exploratory_analysis
+import modules.prediction as prediction
+import modules.dashboard as dashboard
+import modules.system_design as system_design
 
 st.set_page_config(page_title="Student Service Request Monitoring", layout="wide")
 
