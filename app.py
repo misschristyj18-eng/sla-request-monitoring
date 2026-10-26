@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+from pathlib import Path
 
 from modules import data_processing as dp
 import modules.exploratory_analysis as exploratory_analysis
@@ -10,6 +11,7 @@ import modules.system_design as system_design
 st.set_page_config(page_title="Student Service Request Monitoring", layout="wide")
 
 SAMPLE = "sample_service_requests.csv"
+REQUESTER_LOG = "requester_requests.csv"
 
 
 @st.cache_data
@@ -22,13 +24,140 @@ def prep(raw):
     return dp.prepare_data(raw)
 
 
+def load_requester_requests():
+    if "requester_requests" in st.session_state:
+        return st.session_state["requester_requests"]
+
+    path = Path(REQUESTER_LOG)
+    if path.exists():
+        try:
+            df = pd.read_csv(path)
+            if not df.empty:
+                records = df.to_dict(orient="records")
+                st.session_state["requester_requests"] = records
+                return records
+        except Exception:
+            pass
+
+    st.session_state["requester_requests"] = []
+    return st.session_state["requester_requests"]
+
+
+def save_requester_requests(records):
+    st.session_state["requester_requests"] = records
+    pd.DataFrame(records).to_csv(REQUESTER_LOG, index=False)
+
+
+def requester_portal():
+    st.header("Requester Portal")
+    st.caption("Submit new service requests and track current request status.")
+
+    requests = load_requester_requests()
+
+    if st.session_state.get("role") != "Requester":
+        st.info("Switch your role to Requester to submit or review your own service requests.")
+
+    if st.session_state.get("role") == "Requester":
+        with st.form("requester_submit_form"):
+            c1, c2, c3 = st.columns(3)
+            req_id = c1.text_input("Request ID", value=f"REQ-{len(requests) + 1:04d}")
+            service_type = c2.selectbox("Service type", dp.CHOICES["Service_Type"])
+            requester_type = c3.selectbox("Requester type", dp.CHOICES["Requester_Type"])
+
+            c4, c5, c6 = st.columns(3)
+            channel = c4.selectbox("Requested channel", dp.CHOICES["Requested_Channel"])
+            priority = c5.selectbox("Priority", dp.CHOICES["Priority"], index=2)
+            office = c6.selectbox("Assigned office", dp.CHOICES["Assigned_Office"])
+
+            c7, c8 = st.columns(2)
+            queue_length = c7.number_input("Queue length", min_value=0, max_value=200, value=5, step=1)
+            sla_days = c8.number_input("SLA days", min_value=1, max_value=60, value=5, step=1)
+
+            docs_complete = st.selectbox(
+                "Required documents complete?",
+                dp.CHOICES["Required_Documents_Complete"],
+                index=1,
+            )
+            submission_date = st.date_input("Submission date", value=pd.Timestamp.today().normalize())
+
+            submitted = st.form_submit_button("Submit request", type="primary")
+
+            if submitted:
+                cleaned_id = str(req_id).strip()
+                if not cleaned_id:
+                    st.error("Request ID is required.")
+                elif any(str(r.get("Request_ID", "")).strip().lower() == cleaned_id.lower() for r in requests):
+                    st.error(f"A request with ID {cleaned_id} already exists.")
+                else:
+                    new_request = {
+                        "Request_ID": cleaned_id,
+                        "Service_Type": service_type,
+                        "Requester_Type": requester_type,
+                        "Submission_Date": str(submission_date),
+                        "Requested_Channel": channel,
+                        "Priority": priority,
+                        "Assigned_Office": office,
+                        "Queue_Length": int(queue_length),
+                        "Required_Documents_Complete": docs_complete,
+                        "Processing_Days": "",
+                        "SLA_Days": int(sla_days),
+                        "Status": "Pending",
+                        "Reopened": 0,
+                        "Satisfaction_Score": "",
+                        "Submission_Weekday": submission_date.strftime("%A"),
+                        "Queue_Category": "Low" if queue_length <= 5 else "Medium" if queue_length <= 15 else "High",
+                        "SLA_Breached": "",
+                    }
+                    save_requester_requests(requests + [new_request])
+                    st.success(f"Request {cleaned_id} submitted successfully.")
+                    st.balloons()
+
+    if not requests:
+        st.info("No requests have been submitted yet.")
+        return
+
+    st.subheader("My request status")
+    req_df = pd.DataFrame(requests)
+    if req_df.empty:
+        st.info("No requests available to display.")
+        return
+
+    if "Submission_Date" in req_df.columns:
+        req_df["Submission_Date"] = pd.to_datetime(req_df["Submission_Date"], errors="coerce").dt.strftime("%Y-%m-%d")
+    if "Queue_Length" in req_df.columns:
+        req_df["Queue_Length"] = pd.to_numeric(req_df["Queue_Length"], errors="coerce")
+        req_df["Queue_Category"] = pd.cut(
+            req_df["Queue_Length"],
+            bins=[-float("inf"), 5, 15, float("inf")],
+            labels=["Low", "Medium", "High"],
+            right=False,
+        )
+
+    display_cols = [
+        "Request_ID",
+        "Service_Type",
+        "Requester_Type",
+        "Submission_Date",
+        "Assigned_Office",
+        "Priority",
+        "Queue_Category",
+        "Status",
+        "SLA_Days",
+    ]
+    display_cols = [c for c in display_cols if c in req_df.columns]
+    st.dataframe(req_df[display_cols], use_container_width=True, hide_index=True)
+
+
 def get_raw():
     """Uploaded file if valid, otherwise the sample (midterm) dataset."""
     return st.session_state.get("raw_df", load_sample()), st.session_state.get("source", "Sample (midterm) dataset")
 
 
 st.sidebar.title("SLA Monitoring")
-menu = st.sidebar.selectbox("Module", ["Home", "Dataset", "Data Analysis", "Prediction", "Dashboard", "System Design"])
+menu = st.sidebar.selectbox(
+    "Module",
+    ["Home", "Dataset", "Data Analysis", "Prediction", "Requester Portal", "Dashboard", "System Design"],
+)
 role = st.sidebar.selectbox("Your role", ["Office Staff", "Administrator", "Requester"])
 st.sidebar.caption("Synthetic data only. Predictions are advice - a person decides.")
 
@@ -59,8 +188,8 @@ if menu == "Home":
     c.metric("Midterm F1 (breach)", f"{prediction.load_info()['metrics_tree']['f1']:.3f}")
     st.markdown(
         "**How to use:** 1) *Dataset* - upload and check a CSV. 2) *Data Analysis* - explore charts. "
-        "3) *Prediction* - test one request or a batch. 4) *Dashboard* - review flagged requests and record a "
-        "decision. 5) *System Design* - requirements, use case diagram, workflow.")
+        "3) *Prediction* - test one request or a batch. 4) *Requester Portal* - submit and track your requests. "
+        "5) *Dashboard* - review flagged requests and record a decision. 6) *System Design* - requirements, use case diagram, workflow.")
     st.warning("Important: the prediction is a warning only. It is never used to reject a request or deny a service.")
     st.caption(f"Data source in use: {source} | Model version: {prediction.load_info()['model_version']}")
 
@@ -109,6 +238,9 @@ else:
     elif menu == "Prediction":
         st.caption(f"Current role: {role}")
         prediction.show(prep(raw))
+    elif menu == "Requester Portal":
+        st.caption(f"Current role: {role}")
+        requester_portal()
     elif menu == "Dashboard":
         st.caption(f"Current role: {role}")
         dashboard.show(prep(raw), role)
