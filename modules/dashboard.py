@@ -14,7 +14,7 @@ st.markdown(
     """
     <style>
     .dashboard-title {
-        font-size: 2.7rem;
+        font-size: 2.8rem;
         font-weight: 900;
         color: #111111;
         line-height: 1.2;
@@ -24,27 +24,30 @@ st.markdown(
         display: block;
         text-align: left;
     }
+
     .kpi-box {
-        background-color: #f0f0f0;
+        background-color: #efefef;
         border: 1px solid #3b3b3b;
-        padding: 18px 14px 12px 14px;
+        padding: 18px 16px 12px 16px;
+        min-height: 130px;
         text-align: center;
-        min-height: 120px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
+
     .kpi-box .value {
-        font-size: 2.4rem;
+        font-size: 2.5rem;
         font-weight: 800;
         color: #111111;
         line-height: 1.1;
     }
+
     .kpi-box .label {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         color: #111111;
-        margin-top: 0.30rem;
+        margin-top: 0.35rem;
     }
     </style>
     """,
