@@ -3,6 +3,10 @@
 
 A Streamlit app built from my midterm exam (Version 2). A saved Decision Tree predicts whether a service request will breach its SLA, so Office Staff can review risky requests first. Advice only - a person decides.
 
+## Live app
+- GitHub repository: https://github.com/misschristyj18-eng/sla-request-monitoring
+- Streamlit app: https://sla-request-monitoring-5h66pzruadbw5j9wa5bf2k.streamlit.app/#analytical-process-decision-workflow
+
 ## Project pages
 - Home
 - Dataset
@@ -18,8 +22,6 @@ streamlit run app.py
 ```
 
 ## Repository layout
-This repo is organized for the final exam deliverable, with app logic in the `modules` package and a saved model in `models`.
-
 ```text
 sla-request-monitoring/
 ├── app.py
@@ -59,7 +61,12 @@ The model is the same as the midterm:
 - The app does not retrain on refresh. The model is loaded once with `@st.cache_resource`.
 - Predictions are advisory only and are not automatic approval or denial decisions.
 - Synthetic data is used. No real student records are stored.
+- The live app URL above is the final deployed version for verification and review.
 
-## Deployment details
-- GitHub repository: https://github.com/misschristyj18-eng/sla-request-monitoring
-- Streamlit deployment URL: to be filled in after final public deployment
+## Final submission checklist
+- GitHub repository uploaded
+- Streamlit app deployed
+- App URL verified
+- Screenshots of the main modules captured from the live app
+- Five sample predictions recorded from the Prediction page
+- Report completed with the live app URL and summary of testing
