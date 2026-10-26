@@ -32,11 +32,23 @@ menu = st.sidebar.selectbox("Module", ["Home", "Dataset", "Data Analysis", "Pred
 role = st.sidebar.selectbox("Your role", ["Office Staff", "Administrator", "Requester"])
 st.sidebar.caption("Synthetic data only. Predictions are advice - a person decides.")
 
+# Make role selection visible and persistent across pages.
+st.session_state["role"] = role
+
 raw, source = get_raw()
 
 if menu == "Home":
     st.title("Student Service Request Monitoring System")
     st.caption("Baclay, Christ John S. | BSIS 3-B | Systems Analysis and Design | Section B")
+    st.info(f"Current user role: {role}")
+
+    if role == "Requester":
+        st.warning("Requester mode: you can submit and track requests only. Dashboard access is restricted.")
+    elif role == "Office Staff":
+        st.success("Office Staff mode: you can review risk alerts and save final decisions.")
+    else:
+        st.info("Administrator mode: you can review SLA performance and queue status.")
+
     st.markdown(
         "This app turns my **midterm data-mining work** into a working system. A saved Decision Tree predicts "
         "which requests are likely to **breach their SLA** (take longer than the target days), so Office Staff "
@@ -54,6 +66,7 @@ if menu == "Home":
 
 elif menu == "Dataset":
     st.header("Dataset Upload and Validation")
+    st.caption(f"Current role: {role}")
     up = st.file_uploader("Upload CSV", type="csv")
     if up is not None:
         try:
@@ -91,10 +104,14 @@ else:
     if not ok:
         st.error("The current data is not valid. " + " ".join(msgs) + " Go to the Dataset page.")
     elif menu == "Data Analysis":
+        st.caption(f"Current role: {role}")
         exploratory_analysis.show(prep(raw))
     elif menu == "Prediction":
+        st.caption(f"Current role: {role}")
         prediction.show(prep(raw))
     elif menu == "Dashboard":
+        st.caption(f"Current role: {role}")
         dashboard.show(prep(raw), role)
     elif menu == "System Design":
+        st.caption(f"Current role: {role}")
         system_design.show()
