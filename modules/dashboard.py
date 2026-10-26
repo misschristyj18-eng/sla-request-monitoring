@@ -37,15 +37,25 @@ st.markdown(
         font-weight: 800;
         margin-bottom: 1rem;
     }
-    .section-title {
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 0.25rem;
-    }
     </style>
     """,
     unsafe_allow_html=True,
 )
+
+
+SERVICE_COLORS = ["#1f78b4", "#2f7fbf", "#4d9bd3"]
+OFFICE_COLORS = ["#f5a25d", "#eb6a3d", "#d9532f"]
+QUEUE_COLORS = ["#b7d9e8", "#5fa6d9", "#0d4e87"]
+
+
+def risk_bg(value: int) -> str:
+    if value >= 80:
+        return "background-color: #d32f2f; color: white; font-weight: 700;"
+    if value >= 60:
+        return "background-color: #f57c00; color: white; font-weight: 700;"
+    if value >= 40:
+        return "background-color: #fdd835; color: #111111; font-weight: 700;"
+    return "background-color: #2e7d32; color: white; font-weight: 700;"
 
 
 def show(df: pd.DataFrame, role: str):
@@ -61,8 +71,8 @@ def show(df: pd.DataFrame, role: str):
     open_df = df[df["Status"].astype(str).str.lower() == "pending"].copy()
 
     # KPI cards
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
+    k1, k2, k3, k4 = st.columns(4)
+    with k1:
         st.markdown(
             f"""
             <div class="kpi-box">
@@ -72,7 +82,7 @@ def show(df: pd.DataFrame, role: str):
             """,
             unsafe_allow_html=True,
         )
-    with col2:
+    with k2:
         st.markdown(
             f"""
             <div class="kpi-box">
@@ -82,7 +92,7 @@ def show(df: pd.DataFrame, role: str):
             """,
             unsafe_allow_html=True,
         )
-    with col3:
+    with k3:
         st.markdown(
             f"""
             <div class="kpi-box">
@@ -92,7 +102,7 @@ def show(df: pd.DataFrame, role: str):
             """,
             unsafe_allow_html=True,
         )
-    with col4:
+    with k4:
         st.markdown(
             f"""
             <div class="kpi-box">
@@ -105,17 +115,18 @@ def show(df: pd.DataFrame, role: str):
 
     st.write("")
 
-    # Charts
+    # Left / right chart layout
     c1, c2 = st.columns(2)
 
-    t = rate_table(lab, "Assigned_Office")
+    # Office breach rate (orange/red palette)
+    office_df = rate_table(lab, "Assigned_Office")
     office_fig = px.bar(
-        t,
+        office_df,
         y="Assigned_Office",
         x="breach_rate",
         orientation="h",
         labels={"breach_rate": "Breach rate (%)", "Assigned_Office": "Office"},
-        color_discrete_sequence=["#eb6a3d"],
+        color_discrete_sequence=OFFICE_COLORS,
         template="simple_white",
     )
     office_fig.update_layout(
@@ -128,9 +139,9 @@ def show(df: pd.DataFrame, role: str):
         yaxis=dict(title="Office"),
         showlegend=False,
     )
-    office_fig.update_traces(marker_line_color="#d75c2d", marker_line_width=1)
     c1.plotly_chart(office_fig, use_container_width=True)
 
+    # Queue status (blue palette)
     q = (
         open_df["Queue_Category"]
         .astype(str)
@@ -145,7 +156,7 @@ def show(df: pd.DataFrame, role: str):
         q,
         x="Queue_Category",
         y="Open requests",
-        color_discrete_sequence=["#7db7d7", "#2f7fbf", "#0d4e87"],
+        color_discrete_sequence=QUEUE_COLORS,
         template="simple_white",
     )
     qplot.update_layout(
@@ -160,7 +171,7 @@ def show(df: pd.DataFrame, role: str):
     )
     c2.plotly_chart(qplot, use_container_width=True)
 
-    # Service volume chart
+    # Service volume chart (blue palette)
     s1, s2 = st.columns(2)
     service_counts = df["Service_Type"].value_counts().sort_values()
     service_counts_df = service_counts.rename_axis("Service type").reset_index(name="Number of requests")
@@ -169,8 +180,7 @@ def show(df: pd.DataFrame, role: str):
         x="Number of requests",
         y="Service type",
         orientation="h",
-        labels={"Number of requests": "Number of requests", "Service type": "Service type"},
-        color_discrete_sequence=["#1f78b4"],
+        color_discrete_sequence=SERVICE_COLORS,
         template="simple_white",
     )
     svc_fig.update_layout(
@@ -183,10 +193,9 @@ def show(df: pd.DataFrame, role: str):
         yaxis=dict(title="Service type"),
         showlegend=False,
     )
-    svc_fig.update_traces(marker_line_color="#1d6fa6", marker_line_width=1)
     s1.plotly_chart(svc_fig, use_container_width=True)
 
-    # Flagged requests section
+    # Human review table with threshold slider and color-coded risk
     s2.subheader("Flagged for human review")
     thr = st.slider("Show requests with delay risk at or above", 0.0, 1.0, 0.50, 0.05)
     if open_df.empty:
@@ -196,30 +205,16 @@ def show(df: pd.DataFrame, role: str):
     scored = pd.concat([open_df, predict_frame(model, open_df)], axis=1)
     flagged = scored[scored["Delay_Risk"] >= thr].sort_values("Delay_Risk", ascending=False).copy()
     flagged["Data_Warning"] = flagged["Missing_Fields"].map(lambda n: "Queue length missing" if n else "")
-    flagged["Risk_Level"] = pd.cut(
-        flagged["Delay_Risk"],
-        bins=[-1, 0.39, 0.59, 0.79, 1.01],
-        labels=["Low Risk", "Medium Risk", "High Risk", "Critical Risk"],
-        right=False,
-    )
-
-    def color_for_risk(value):
-        if value >= 80:
-            return "background-color: #d32f2f; color: white; font-weight: 700;"
-        if value >= 60:
-            return "background-color: #f57c00; color: white; font-weight: 700;"
-        if value >= 40:
-            return "background-color: #fdd835; color: #111111; font-weight: 700;"
-        return "background-color: #2e7d32; color: white; font-weight: 700;"
 
     s2.write(f"**{len(flagged)} of {len(scored)} open requests** are at {thr * 100:.0f}% risk or higher.")
+
     display_df = flagged[["Request_ID", "Service_Type", "Assigned_Office", "Delay_Risk", "Risk_Level"]].copy()
     display_df["Delay_Risk"] = (display_df["Delay_Risk"] * 100).round(0).astype(int)
     display_df.columns = ["Request_ID", "Service", "Office", "Delay risk (%)", "Risk level"]
 
     styled = display_df.style.apply(
         lambda row: [
-            color_for_risk(row["Delay risk (%)"]) if col == "Delay risk (%)" else "" for col in row.index
+            risk_bg(row["Delay risk (%)"]) if col == "Delay risk (%)" else "" for col in row.index
         ],
         axis=1,
     )
@@ -228,6 +223,7 @@ def show(df: pd.DataFrame, role: str):
     st.write("")
     st.info("Advice only - staff decide. [Review] [Override with reason]")
 
+    # Staff decision section
     st.subheader("Staff decision (human in the loop)")
     if role != "Office Staff":
         st.warning("Only Office Staff can record a final decision. Administrators can view results.")
@@ -266,5 +262,4 @@ def show(df: pd.DataFrame, role: str):
         f"- Risk scores are advice only (model accuracy {info['metrics_tree']['accuracy']:.3f}, recall {info['metrics_tree']['recall']:.3f}, tested on {info['n_test']} rows)."
     )
 
-    st.write("")
     st.caption("Synthetic data only. Predictions are advice - a person decides.")
