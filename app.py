@@ -12,6 +12,7 @@ st.set_page_config(page_title="Student Service Request Monitoring", layout="wide
 
 SAMPLE = "sample_service_requests.csv"
 REQUESTER_LOG = "requester_requests.csv"
+STAFF_REVIEW_LOG = "staff_review_status.csv"
 
 
 @st.cache_data
@@ -46,6 +47,22 @@ def load_requester_requests():
 def save_requester_requests(records):
     st.session_state["requester_requests"] = records
     pd.DataFrame(records).to_csv(REQUESTER_LOG, index=False)
+
+
+def load_staff_review_log():
+    path = Path(STAFF_REVIEW_LOG)
+    if path.exists():
+        try:
+            df = pd.read_csv(path)
+            if not df.empty:
+                return df
+        except Exception:
+            pass
+    return pd.DataFrame(columns=["Request_ID", "Status", "Review_Notes", "Last_Updated"]) 
+
+
+def save_staff_review_log(df):
+    df.to_csv(STAFF_REVIEW_LOG, index=False)
 
 
 def requester_portal():
@@ -148,6 +165,76 @@ def requester_portal():
     st.dataframe(req_df[display_cols], use_container_width=True, hide_index=True)
 
 
+def office_staff_review():
+    st.header("Office Staff Review")
+    st.caption("Process requests, update status, and review delay-risk alerts.")
+
+    if st.session_state.get("role") == "Requester":
+        st.warning("Only Office Staff and Administrators can access request review and delay-risk review.")
+        return
+
+    if st.session_state.get("role") not in ["Office Staff", "Administrator"]:
+        st.info("Switch to Office Staff or Administrator to process requests.")
+        return
+
+    requests = load_requester_requests()
+    review_df = pd.DataFrame(requests)
+    review_log = load_staff_review_log()
+
+    if review_df.empty and review_log.empty:
+        st.info("There are no requests to review yet.")
+        return
+
+    if not review_df.empty:
+        if "Status" not in review_df.columns:
+            review_df["Status"] = "Pending"
+        review_df = review_df[[c for c in ["Request_ID", "Service_Type", "Requester_Type", "Submission_Date", "Assigned_Office", "Priority", "Queue_Category", "Status", "SLA_Days"] if c in review_df.columns]]
+    else:
+        review_df = pd.DataFrame(columns=["Request_ID", "Service_Type", "Requester_Type", "Submission_Date", "Assigned_Office", "Priority", "Queue_Category", "Status", "SLA_Days"])
+
+    st.subheader("Request queue")
+    st.dataframe(review_df, use_container_width=True, hide_index=True)
+
+    if review_df.empty:
+        return
+
+    with st.form("staff_review_form"):
+        selected_id = st.selectbox("Select request to process", review_df["Request_ID"].tolist())
+        selected_row = review_df[review_df["Request_ID"] == selected_id].iloc[0]
+        current_status = selected_row.get("Status", "Pending")
+        status = st.selectbox("Update status", ["Pending", "In Review", "Approved", "Completed", "Rejected"], index=["Pending", "In Review", "Approved", "Completed", "Rejected"].index(str(current_status) if str(current_status) in ["Pending", "In Review", "Approved", "Completed", "Rejected"] else "Pending"))
+        notes = st.text_area("Review notes", value="")
+        submitted = st.form_submit_button("Save request status", type="primary")
+
+        if submitted:
+            for req in requests:
+                if str(req.get("Request_ID", "")).strip() == str(selected_id):
+                    req["Status"] = status
+                    break
+            save_requester_requests(requests)
+
+            log_df = load_staff_review_log()
+            new_log = pd.DataFrame([{
+                "Request_ID": selected_id,
+                "Status": status,
+                "Review_Notes": notes,
+                "Last_Updated": pd.Timestamp.now().strftime("%Y-%m-%d %H:%M:%S")
+            }])
+            if log_df.empty:
+                log_df = new_log
+            else:
+                log_df = pd.concat([log_df, new_log], ignore_index=True)
+            save_staff_review_log(log_df)
+            st.success(f"Request {selected_id} updated to {status}.")
+
+    st.subheader("Delay risk review")
+    if st.session_state.get("role") == "Requester":
+        st.warning("Delay risk review is restricted to Office Staff and Administrators.")
+    else:
+        st.info("This review is based on the prediction model and is available to Office Staff and Administrators only.")
+        prediction.show(prep(raw if "raw" in locals() else load_sample()))
+
+
 def get_raw():
     """Uploaded file if valid, otherwise the sample (midterm) dataset."""
     return st.session_state.get("raw_df", load_sample()), st.session_state.get("source", "Sample (midterm) dataset")
@@ -156,7 +243,7 @@ def get_raw():
 st.sidebar.title("SLA Monitoring")
 menu = st.sidebar.selectbox(
     "Module",
-    ["Home", "Dataset", "Data Analysis", "Prediction", "Requester Portal", "Dashboard", "System Design"],
+    ["Home", "Dataset", "Data Analysis", "Prediction", "Requester Portal", "Office Staff Review", "Dashboard", "System Design"],
 )
 role = st.sidebar.selectbox("Your role", ["Office Staff", "Administrator", "Requester"])
 st.sidebar.caption("Synthetic data only. Predictions are advice - a person decides.")
@@ -174,7 +261,7 @@ if menu == "Home":
     if role == "Requester":
         st.warning("Requester mode: you can submit and track requests only. Dashboard access is restricted.")
     elif role == "Office Staff":
-        st.success("Office Staff mode: you can review risk alerts and save final decisions.")
+        st.success("Office Staff mode: you can review risk alerts, process requests, and update request status.")
     else:
         st.info("Administrator mode: you can review SLA performance and queue status.")
 
@@ -188,8 +275,9 @@ if menu == "Home":
     c.metric("Midterm F1 (breach)", f"{prediction.load_info()['metrics_tree']['f1']:.3f}")
     st.markdown(
         "**How to use:** 1) *Dataset* - upload and check a CSV. 2) *Data Analysis* - explore charts. "
-        "3) *Prediction* - test one request or a batch. 4) *Requester Portal* - submit and track your requests. "
-        "5) *Dashboard* - review flagged requests and record a decision. 6) *System Design* - requirements, use case diagram, workflow.")
+        "3) *Prediction* - review delay risk (staff/admin only). 4) *Requester Portal* - submit and track your requests. "
+        "5) *Office Staff Review* - process and update request status. 6) *Dashboard* - review flagged requests and record a decision. "
+        "7) *System Design* - requirements, use case diagram, workflow.")
     st.warning("Important: the prediction is a warning only. It is never used to reject a request or deny a service.")
     st.caption(f"Data source in use: {source} | Model version: {prediction.load_info()['model_version']}")
 
@@ -237,13 +325,22 @@ else:
         exploratory_analysis.show(prep(raw))
     elif menu == "Prediction":
         st.caption(f"Current role: {role}")
-        prediction.show(prep(raw))
+        if role == "Requester":
+            st.warning("Delay risk review is restricted to Office Staff and Administrators.")
+        else:
+            prediction.show(prep(raw))
     elif menu == "Requester Portal":
         st.caption(f"Current role: {role}")
         requester_portal()
+    elif menu == "Office Staff Review":
+        st.caption(f"Current role: {role}")
+        office_staff_review()
     elif menu == "Dashboard":
         st.caption(f"Current role: {role}")
-        dashboard.show(prep(raw), role)
+        if role == "Requester":
+            st.error("Requesters can only submit and track their own requests. The risk dashboard is for Office Staff and Administrators.")
+        else:
+            dashboard.show(prep(raw), role)
     elif menu == "System Design":
         st.caption(f"Current role: {role}")
         system_design.show()
