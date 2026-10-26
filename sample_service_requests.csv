@@ -1,0 +1,401 @@
+Request_ID,Service_Type,Requester_Type,Submission_Date,Requested_Channel,Priority,Assigned_Office,Queue_Length,Required_Documents_Complete,Processing_Days,SLA_Days,Status,Reopened,Satisfaction_Score,Submission_Weekday,Queue_Category,SLA_Breached
+REQ1000,Records,Faculty,2024-06-12,Walk-in,Low,Dean's Office,8,Yes,9.3,5,Completed,No,1,Wednesday,Medium,1
+REQ1001,IT Support,Student,2024-01-29,Portal,Normal,Dean's Office,9,Yes,5.6,2,Completed,Yes,4,Monday,Medium,1
+REQ1002,IT Support,Faculty,2024-01-07,Email,Low,Scholarship Office,19,Yes,9.7,2,Completed,Yes,3,Sunday,High,1
+REQ1003,Records,Student,2024-03-11,Portal,Normal,Registrar,6,No,9.8,5,Completed,No,2,Monday,Medium,1
+REQ1004,Records,Staff,2024-03-03,Portal,High,IT Office,22,Yes,9.6,5,Completed,No,2,Sunday,High,1
+REQ1005,Enrollment,Faculty,2024-02-27,Walk-in,Normal,Dean's Office,10,Yes,9.4,4,Completed,Yes,5,Tuesday,Medium,1
+REQ1006,Enrollment,Student,2024-02-05,Walk-in,High,Dean's Office,6,No,8.5,4,Completed,No,2,Monday,Medium,1
+REQ1007,Enrollment,Faculty,2024-01-27,Email,High,Registrar,21,Yes,,4,Pending,,,Saturday,High,
+REQ1008,Scholarship Inquiry,Student,2024-06-22,Email,Low,IT Office,20,Yes,13.6,7,Completed,No,4,Saturday,High,1
+REQ1009,Scholarship Inquiry,Staff,2024-05-19,Email,Normal,Scholarship Office,8,Yes,7.5,7,Completed,No,1,Sunday,Medium,1
+REQ1010,Enrollment,Staff,2024-01-23,Portal,Normal,IT Office,16,Yes,7.2,4,Completed,No,2,Tuesday,High,1
+REQ1011,Enrollment,Staff,2024-05-31,Walk-in,High,Registrar,15,Yes,11.3,4,Completed,Yes,5,Friday,Medium,1
+REQ1012,Records,Student,2024-04-18,Walk-in,Normal,IT Office,8,Yes,7.6,5,Completed,Yes,4,Thursday,Medium,1
+REQ1013,Scholarship Inquiry,Faculty,2024-01-09,Portal,Low,IT Office,1,Yes,8.1,7,Completed,No,4,Tuesday,Low,1
+REQ1014,Enrollment,Faculty,2024-01-08,Portal,High,Registrar,2,Yes,6.5,4,Completed,No,4,Monday,Low,1
+REQ1015,Certification,Staff,2024-01-24,Email,High,Scholarship Office,20,Yes,,3,Pending,,,Wednesday,High,
+REQ1016,IT Support,Staff,2024-02-25,Walk-in,Low,IT Office,13,No,9.1,2,Completed,No,4,Sunday,Medium,1
+REQ1017,Enrollment,Staff,2024-02-29,Portal,Low,Registrar,8,No,,4,Pending,,,Thursday,Medium,
+REQ1018,Scholarship Inquiry,Student,2024-05-09,Portal,Low,IT Office,1,Yes,,7,Cancelled,,,Thursday,Low,
+REQ1019,Enrollment,Faculty,2024-06-03,Email,Normal,Registrar,0,Yes,3.5,4,Completed,No,4,Monday,Low,0
+REQ1020,Certification,Student,2024-01-07,Email,Low,Scholarship Office,10,Yes,6.5,3,Completed,No,4,Sunday,Medium,1
+REQ1021,Records,Staff,2024-05-23,Email,Low,Dean's Office,24,Yes,13.8,5,Completed,No,1,Thursday,High,1
+REQ1022,Scholarship Inquiry,Staff,2024-02-20,Email,High,Scholarship Office,4,Yes,8.3,7,Completed,No,1,Tuesday,Low,1
+REQ1023,Records,Student,2024-06-15,Walk-in,Normal,Dean's Office,20,Yes,,5,Pending,,,Saturday,High,
+REQ1024,IT Support,Staff,2024-06-28,Walk-in,High,Dean's Office,8,Yes,3.7,2,Completed,No,5,Friday,Medium,1
+REQ1025,Records,Faculty,2024-05-19,Email,High,IT Office,5,Yes,7.4,5,Completed,Yes,2,Sunday,Low,1
+REQ1026,Enrollment,Staff,2024-04-17,Walk-in,Low,Registrar,23,No,,4,Cancelled,,,Wednesday,High,
+REQ1027,Certification,Faculty,2024-02-26,Walk-in,Normal,Registrar,14,Yes,7.6,3,Completed,Yes,3,Monday,Medium,1
+REQ1028,Records,Staff,2024-04-24,Portal,Low,Registrar,17,Yes,12.5,5,Completed,No,1,Wednesday,High,1
+REQ1029,Certification,Student,2024-05-30,Walk-in,High,Scholarship Office,22,Yes,,3,Pending,,,Thursday,High,
+REQ1030,Scholarship Inquiry,Staff,2024-03-12,Walk-in,Normal,Scholarship Office,,Yes,6.9,7,Completed,No,3,Tuesday,,0
+REQ1031,Scholarship Inquiry,Staff,2024-01-02,Email,High,Scholarship Office,17,No,,7,Pending,,,Tuesday,High,
+REQ1032,Enrollment,Student,2024-02-10,Email,High,Scholarship Office,0,No,7.3,4,Completed,No,5,Saturday,Low,1
+REQ1033,Enrollment,Staff,2024-06-27,Email,Normal,IT Office,3,Yes,6.3,4,Completed,Yes,2,Thursday,Low,1
+REQ1034,Enrollment,Student,2024-04-18,Portal,Low,IT Office,2,No,5,4,Completed,No,1,Thursday,Low,1
+REQ1035,Certification,Student,2024-03-28,Portal,Low,Dean's Office,22,Yes,9.5,3,Completed,Yes,1,Thursday,High,1
+REQ1036,IT Support,Faculty,2024-03-12,Email,High,Dean's Office,4,No,4.8,2,Completed,No,2,Tuesday,Low,1
+REQ1037,IT Support,Staff,2024-02-09,Portal,Low,Registrar,17,Yes,4.6,2,Completed,Yes,2,Friday,High,1
+REQ1038,IT Support,Staff,2024-02-25,Portal,Normal,Scholarship Office,1,No,3.9,2,Completed,No,3,Sunday,Low,1
+REQ1039,Scholarship Inquiry,Staff,2024-03-27,Walk-in,Normal,IT Office,11,Yes,11.1,7,Completed,No,3,Wednesday,Medium,1
+REQ1040,Scholarship Inquiry,Faculty,2024-01-27,Walk-in,Low,Dean's Office,18,Yes,10.6,7,Completed,No,2,Saturday,High,1
+REQ1041,IT Support,Staff,2024-01-24,Walk-in,Low,Registrar,17,No,14.5,2,Completed,Yes,1,Wednesday,High,1
+REQ1042,Enrollment,Faculty,2024-04-07,Email,High,Registrar,4,No,6.1,4,Completed,Yes,4,Sunday,Low,1
+REQ1043,Records,Faculty,2024-01-25,Email,Normal,Scholarship Office,13,No,,5,Pending,,,Thursday,Medium,
+REQ1044,IT Support,Staff,2024-04-01,Email,Low,Scholarship Office,4,Yes,1.8,2,Completed,No,5,Monday,Low,0
+REQ1045,Records,Staff,2024-03-29,Portal,Low,Registrar,1,Yes,4.5,5,Completed,No,5,Friday,Low,0
+REQ1046,IT Support,Student,2024-06-03,Walk-in,Low,Scholarship Office,9,Yes,,2,Pending,,,Monday,Medium,
+REQ1047,Records,Faculty,2024-03-08,Walk-in,High,Scholarship Office,11,Yes,7.2,5,Completed,No,3,Friday,Medium,1
+REQ1048,Enrollment,Faculty,2024-01-12,Email,Normal,Dean's Office,25,Yes,14,4,Completed,Yes,2,Friday,High,1
+REQ1049,Scholarship Inquiry,Faculty,2024-04-27,Email,High,Dean's Office,1,No,9.2,7,Completed,No,1,Saturday,Low,1
+REQ1050,IT Support,Faculty,2024-05-17,Email,Normal,Dean's Office,11,Yes,2,2,Completed,Yes,1,Friday,Medium,0
+REQ1051,IT Support,Faculty,2024-02-01,Email,Normal,IT Office,6,No,6.3,2,Completed,No,3,Thursday,Medium,1
+REQ1052,Enrollment,Student,2024-04-06,Email,High,Scholarship Office,21,No,12.5,4,Completed,No,3,Saturday,High,1
+REQ1053,Certification,Student,2024-01-21,Email,Low,Dean's Office,7,Yes,,3,Cancelled,,,Sunday,Medium,
+REQ1054,IT Support,Faculty,2024-05-21,Email,High,Dean's Office,,Yes,,2,Cancelled,,,Tuesday,,
+REQ1055,Records,Staff,2024-03-16,Walk-in,Low,Registrar,3,No,7.5,5,Completed,No,4,Saturday,Low,1
+REQ1056,Enrollment,Staff,2024-06-09,Portal,High,Dean's Office,11,Yes,7.5,4,Completed,No,5,Sunday,Medium,1
+REQ1057,Certification,Staff,2024-06-07,Portal,Low,Registrar,24,Yes,,3,Pending,,,Friday,High,
+REQ1058,IT Support,Staff,2024-04-02,Walk-in,High,Scholarship Office,17,No,8.2,2,Completed,No,5,Tuesday,High,1
+REQ1059,IT Support,Faculty,2024-05-27,Walk-in,Normal,Registrar,13,Yes,8.9,2,Completed,Yes,5,Monday,Medium,1
+REQ1060,Scholarship Inquiry,Staff,2024-02-19,Portal,Low,Dean's Office,19,Yes,11.3,7,Completed,No,3,Monday,High,1
+REQ1061,Certification,Staff,2024-06-29,Email,High,IT Office,23,Yes,,3,Cancelled,,,Saturday,High,
+REQ1062,Enrollment,Faculty,2024-01-18,Portal,High,IT Office,4,Yes,3.9,4,Completed,No,4,Thursday,Low,0
+REQ1063,Records,Staff,2024-01-12,Walk-in,Low,Scholarship Office,7,Yes,3.8,5,Completed,No,2,Friday,Medium,0
+REQ1064,IT Support,Staff,2024-06-18,Portal,Normal,Dean's Office,,Yes,,2,Pending,,,Tuesday,,
+REQ1065,Enrollment,Staff,2024-02-28,Email,High,Scholarship Office,25,Yes,10.7,4,Completed,No,3,Wednesday,High,1
+REQ1066,Scholarship Inquiry,Staff,2024-03-15,Walk-in,Low,Registrar,25,Yes,13.1,7,Completed,No,4,Friday,High,1
+REQ1067,IT Support,Student,2024-01-21,Walk-in,Low,Scholarship Office,5,Yes,1,2,Completed,No,3,Sunday,Low,0
+REQ1068,Certification,Student,2024-02-29,Portal,Normal,IT Office,,Yes,7.3,3,Completed,No,2,Thursday,,1
+REQ1069,Enrollment,Student,2024-01-26,Walk-in,Normal,Scholarship Office,0,No,,4,Cancelled,,,Friday,Low,
+REQ1070,Records,Staff,2024-04-07,Portal,Normal,Registrar,5,No,7.9,5,Completed,Yes,2,Sunday,Low,1
+REQ1071,Scholarship Inquiry,Staff,2024-03-12,Portal,Normal,Dean's Office,23,Yes,11.7,7,Completed,No,4,Tuesday,High,1
+REQ1072,Enrollment,Faculty,2024-04-26,Walk-in,High,Scholarship Office,10,No,7.9,4,Completed,No,1,Friday,Medium,1
+REQ1073,IT Support,Staff,2024-06-11,Walk-in,High,Registrar,25,No,,2,Pending,,,Tuesday,High,
+REQ1074,Records,Faculty,2024-04-03,Portal,Normal,IT Office,13,No,13.5,5,Completed,No,2,Wednesday,Medium,1
+REQ1075,IT Support,Staff,2024-02-11,Walk-in,Normal,Dean's Office,25,Yes,,2,Pending,,,Sunday,High,
+REQ1076,IT Support,Student,2024-04-04,Walk-in,Normal,Scholarship Office,21,Yes,6.9,2,Completed,No,2,Thursday,High,1
+REQ1077,Certification,Staff,2024-03-31,Email,Normal,Scholarship Office,23,Yes,6.8,3,Completed,No,2,Sunday,High,1
+REQ1078,Certification,Staff,2024-02-23,Walk-in,Low,IT Office,,Yes,9.2,3,Completed,No,2,Friday,,1
+REQ1079,IT Support,Student,2024-06-20,Portal,Low,Scholarship Office,7,No,4.3,2,Completed,Yes,1,Thursday,Medium,1
+REQ1080,Scholarship Inquiry,Staff,2024-03-09,Portal,Low,IT Office,8,Yes,9.5,7,Completed,No,5,Saturday,Medium,1
+REQ1081,Certification,Staff,2024-06-28,Walk-in,Low,IT Office,5,Yes,3.9,3,Completed,Yes,5,Friday,Low,1
+REQ1082,Certification,Staff,2024-06-23,Email,High,Dean's Office,25,Yes,,3,Pending,,,Sunday,High,
+REQ1083,Certification,Staff,2024-06-14,Walk-in,Low,IT Office,22,No,,3,Pending,,,Friday,High,
+REQ1084,Certification,Faculty,2024-01-19,Walk-in,Low,IT Office,3,Yes,5.7,3,Completed,Yes,2,Friday,Low,1
+REQ1085,Records,Staff,2024-06-04,Email,Low,IT Office,12,No,,5,Pending,,,Tuesday,Medium,
+REQ1086,IT Support,Student,2024-06-11,Walk-in,Low,Scholarship Office,1,Yes,1,2,Completed,No,1,Tuesday,Low,0
+REQ1087,Records,Faculty,2024-02-13,Portal,Normal,IT Office,15,Yes,5.9,5,Completed,No,3,Tuesday,Medium,1
+REQ1088,Enrollment,Staff,2024-05-16,Email,Normal,IT Office,7,No,,4,Pending,,,Thursday,Medium,
+REQ1089,Enrollment,Faculty,2024-03-03,Email,Normal,IT Office,6,Yes,,4,Pending,,,Sunday,Medium,
+REQ1090,Enrollment,Staff,2024-02-11,Portal,Normal,IT Office,14,Yes,8.4,4,Completed,No,1,Sunday,Medium,1
+REQ1091,Records,Staff,2024-04-28,Walk-in,Low,Scholarship Office,11,Yes,,5,Pending,,,Sunday,Medium,
+REQ1092,IT Support,Staff,2024-04-07,Walk-in,High,IT Office,9,Yes,1,2,Completed,Yes,4,Sunday,Medium,0
+REQ1093,Enrollment,Staff,2024-03-10,Email,Normal,Registrar,25,Yes,,4,Pending,,,Sunday,High,
+REQ1094,Certification,Faculty,2024-06-12,Portal,Low,Registrar,7,Yes,5.7,3,Completed,No,3,Wednesday,Medium,1
+REQ1095,Enrollment,Staff,2024-06-25,Email,Normal,Registrar,7,Yes,5.6,4,Completed,No,5,Tuesday,Medium,1
+REQ1096,Scholarship Inquiry,Staff,2024-05-22,Walk-in,Normal,Dean's Office,0,Yes,6.8,7,Completed,No,5,Wednesday,Low,0
+REQ1097,Certification,Staff,2024-02-26,Walk-in,Normal,Registrar,21,Yes,10.4,3,Completed,No,1,Monday,High,1
+REQ1098,Certification,Faculty,2024-06-24,Portal,Normal,Registrar,6,Yes,3.1,3,Completed,No,5,Monday,Medium,1
+REQ1099,Certification,Faculty,2024-03-24,Email,Low,Dean's Office,12,Yes,8.7,3,Completed,No,1,Sunday,Medium,1
+REQ1100,Enrollment,Student,2024-01-15,Email,Low,Scholarship Office,10,No,10.2,4,Completed,Yes,1,Monday,Medium,1
+REQ1101,Certification,Staff,2024-02-28,Walk-in,Low,Scholarship Office,8,Yes,4.7,3,Completed,No,1,Wednesday,Medium,1
+REQ1102,Scholarship Inquiry,Student,2024-01-09,Portal,High,Dean's Office,2,Yes,8.9,7,Completed,Yes,1,Tuesday,Low,1
+REQ1103,Records,Student,2024-03-21,Walk-in,Normal,Scholarship Office,24,Yes,14,5,Completed,No,1,Thursday,High,1
+REQ1104,Scholarship Inquiry,Faculty,2024-04-12,Portal,High,Dean's Office,8,Yes,,7,Pending,,,Friday,Medium,
+REQ1105,IT Support,Student,2024-03-09,Walk-in,High,IT Office,11,Yes,6.8,2,Completed,Yes,4,Saturday,Medium,1
+REQ1106,Certification,Student,2024-01-17,Walk-in,High,Scholarship Office,20,Yes,7.7,3,Completed,No,4,Wednesday,High,1
+REQ1107,Scholarship Inquiry,Staff,2024-02-24,Portal,Low,Dean's Office,16,Yes,10.9,7,Completed,No,4,Saturday,High,1
+REQ1108,Enrollment,Student,2024-05-25,Walk-in,Low,IT Office,12,Yes,,4,Cancelled,,,Saturday,Medium,
+REQ1109,IT Support,Student,2024-03-21,Portal,Normal,IT Office,21,Yes,9.3,2,Completed,No,1,Thursday,High,1
+REQ1110,Scholarship Inquiry,Faculty,2024-02-24,Email,Low,Registrar,17,Yes,12.2,7,Completed,No,5,Saturday,High,1
+REQ1111,Certification,Student,2024-06-16,Portal,Low,Dean's Office,10,Yes,,3,Pending,,,Sunday,Medium,
+REQ1112,Enrollment,Faculty,2024-05-07,Portal,High,Dean's Office,0,Yes,4,4,Completed,No,3,Tuesday,Low,0
+REQ1113,Certification,Staff,2024-04-11,Walk-in,Low,Registrar,3,Yes,,3,Cancelled,,,Thursday,Low,
+REQ1114,IT Support,Faculty,2024-06-13,Walk-in,Normal,Scholarship Office,8,Yes,4.6,2,Completed,No,4,Thursday,Medium,1
+REQ1115,Scholarship Inquiry,Student,2024-04-27,Walk-in,Normal,Dean's Office,5,Yes,,7,Pending,,,Saturday,Low,
+REQ1116,Certification,Student,2024-02-06,Portal,High,IT Office,18,Yes,,3,Pending,,,Tuesday,High,
+REQ1117,IT Support,Staff,2024-03-08,Walk-in,Low,Dean's Office,8,No,,2,Pending,,,Friday,Medium,
+REQ1118,Enrollment,Faculty,2024-02-05,Walk-in,High,Registrar,1,Yes,4.1,4,Completed,Yes,2,Monday,Low,1
+REQ1119,Scholarship Inquiry,Student,2024-03-04,Email,Normal,Dean's Office,3,Yes,10,7,Completed,No,2,Monday,Low,1
+REQ1120,Scholarship Inquiry,Staff,2024-05-23,Email,Normal,Scholarship Office,19,Yes,11.1,7,Completed,Yes,1,Thursday,High,1
+REQ1121,IT Support,Student,2024-05-17,Portal,Low,Registrar,13,No,8.6,2,Completed,No,3,Friday,Medium,1
+REQ1122,Scholarship Inquiry,Faculty,2024-03-08,Portal,Low,Registrar,11,No,9.6,7,Completed,No,4,Friday,Medium,1
+REQ1123,Enrollment,Faculty,2024-05-29,Email,Normal,IT Office,23,No,,4,Cancelled,,,Wednesday,High,
+REQ1124,Enrollment,Student,2024-04-19,Portal,Normal,Dean's Office,25,Yes,11.5,4,Completed,No,1,Friday,High,1
+REQ1125,Scholarship Inquiry,Staff,2024-05-29,Portal,High,Registrar,10,Yes,11.1,7,Completed,No,5,Wednesday,Medium,1
+REQ1126,Certification,Staff,2024-04-12,Email,High,Scholarship Office,13,Yes,6.3,3,Completed,No,3,Friday,Medium,1
+REQ1127,Certification,Staff,2024-04-02,Email,High,Scholarship Office,19,Yes,,3,Pending,,,Tuesday,High,
+REQ1128,Enrollment,Staff,2024-02-26,Portal,Low,Scholarship Office,,No,,4,Cancelled,,,Monday,,
+REQ1129,Certification,Student,2024-02-05,Portal,Low,IT Office,3,Yes,,3,Pending,,,Monday,Low,
+REQ1130,IT Support,Staff,2024-05-10,Walk-in,Normal,Scholarship Office,12,Yes,2.4,2,Completed,Yes,5,Friday,Medium,1
+REQ1131,Records,Staff,2024-05-06,Portal,Low,IT Office,18,No,14.5,5,Completed,Yes,5,Monday,High,1
+REQ1132,Scholarship Inquiry,Staff,2024-01-24,Walk-in,Low,Scholarship Office,6,No,,7,Pending,,,Wednesday,Medium,
+REQ1133,IT Support,Faculty,2024-01-13,Email,Low,Dean's Office,8,Yes,2.8,2,Completed,No,2,Saturday,Medium,1
+REQ1134,Enrollment,Student,2024-01-29,Email,Low,Scholarship Office,1,Yes,5.2,4,Completed,No,4,Monday,Low,1
+REQ1135,Records,Staff,2024-02-09,Email,Low,Scholarship Office,22,Yes,,5,Pending,,,Friday,High,
+REQ1136,Enrollment,Staff,2024-06-09,Email,Low,IT Office,13,Yes,,4,Pending,,,Sunday,Medium,
+REQ1137,Records,Faculty,2024-02-10,Portal,Low,Dean's Office,0,Yes,4.5,5,Completed,No,1,Saturday,Low,0
+REQ1138,IT Support,Staff,2024-06-23,Portal,Low,Dean's Office,16,Yes,10,2,Completed,No,5,Sunday,High,1
+REQ1139,Records,Staff,2024-04-18,Walk-in,Normal,IT Office,25,Yes,10.6,5,Completed,No,5,Thursday,High,1
+REQ1140,Certification,Student,2024-06-01,Email,Normal,Dean's Office,17,Yes,9.1,3,Completed,Yes,1,Saturday,High,1
+REQ1141,IT Support,Faculty,2024-01-17,Portal,High,Scholarship Office,21,No,10.9,2,Completed,No,3,Wednesday,High,1
+REQ1142,Scholarship Inquiry,Faculty,2024-04-08,Walk-in,High,Scholarship Office,23,Yes,13.7,7,Completed,Yes,1,Monday,High,1
+REQ1143,Enrollment,Faculty,2024-04-07,Walk-in,High,Dean's Office,23,No,12.1,4,Completed,No,1,Sunday,High,1
+REQ1144,Certification,Staff,2024-06-01,Walk-in,Low,Scholarship Office,23,No,13,3,Completed,No,4,Saturday,High,1
+REQ1145,Scholarship Inquiry,Faculty,2024-04-29,Email,High,Dean's Office,21,No,12.7,7,Completed,No,2,Monday,High,1
+REQ1146,Records,Staff,2024-05-15,Walk-in,High,IT Office,6,Yes,,5,Cancelled,,,Wednesday,Medium,
+REQ1147,Certification,Student,2024-03-05,Email,Normal,IT Office,11,No,8.4,3,Completed,Yes,5,Tuesday,Medium,1
+REQ1148,Scholarship Inquiry,Student,2024-05-21,Walk-in,Low,IT Office,13,Yes,13.7,7,Completed,Yes,2,Tuesday,Medium,1
+REQ1149,IT Support,Staff,2024-01-03,Walk-in,Low,Registrar,2,Yes,2.4,2,Completed,Yes,3,Wednesday,Low,1
+REQ1150,Records,Faculty,2024-06-23,Walk-in,Low,Scholarship Office,21,Yes,12.7,5,Completed,No,5,Sunday,High,1
+REQ1151,Scholarship Inquiry,Student,2024-01-30,Portal,Low,IT Office,10,Yes,7.7,7,Completed,No,2,Tuesday,Medium,1
+REQ1152,Records,Staff,2024-06-23,Email,High,Dean's Office,19,Yes,15.2,5,Completed,No,3,Sunday,High,1
+REQ1153,Scholarship Inquiry,Faculty,2024-05-17,Walk-in,Normal,Dean's Office,10,Yes,8.4,7,Completed,No,4,Friday,Medium,1
+REQ1154,Enrollment,Student,2024-03-09,Email,Low,IT Office,21,Yes,9.2,4,Completed,No,3,Saturday,High,1
+REQ1155,IT Support,Staff,2024-06-13,Email,Low,IT Office,3,Yes,2.6,2,Completed,No,2,Thursday,Low,1
+REQ1156,Certification,Staff,2024-03-28,Walk-in,Normal,IT Office,23,Yes,,3,Cancelled,,,Thursday,High,
+REQ1157,Scholarship Inquiry,Staff,2024-01-29,Walk-in,Low,Dean's Office,9,Yes,10.9,7,Completed,No,1,Monday,Medium,1
+REQ1158,Records,Staff,2024-03-16,Portal,Low,Registrar,16,Yes,9,5,Completed,Yes,5,Saturday,High,1
+REQ1159,IT Support,Faculty,2024-04-21,Walk-in,Normal,IT Office,9,Yes,5.4,2,Completed,No,4,Sunday,Medium,1
+REQ1160,Certification,Staff,2024-02-10,Email,Low,Dean's Office,21,Yes,12.9,3,Completed,No,2,Saturday,High,1
+REQ1161,Records,Staff,2024-04-26,Email,Low,Dean's Office,13,No,,5,Pending,,,Friday,Medium,
+REQ1162,IT Support,Staff,2024-01-01,Portal,High,IT Office,10,No,,2,Pending,,,Monday,Medium,
+REQ1163,Records,Staff,2024-03-08,Walk-in,Normal,Scholarship Office,12,No,7.8,5,Completed,No,4,Friday,Medium,1
+REQ1164,IT Support,Student,2024-05-08,Email,High,Dean's Office,22,Yes,,2,Pending,,,Wednesday,High,
+REQ1165,Certification,Staff,2024-02-15,Email,Normal,Scholarship Office,9,Yes,7.7,3,Completed,No,3,Thursday,Medium,1
+REQ1166,Certification,Student,2024-05-09,Email,Normal,Scholarship Office,17,Yes,,3,Pending,,,Thursday,High,
+REQ1167,Records,Faculty,2024-01-28,Email,Low,Registrar,4,Yes,7,5,Completed,No,2,Sunday,Low,1
+REQ1168,IT Support,Faculty,2024-06-09,Email,Normal,Dean's Office,6,Yes,3.7,2,Completed,Yes,1,Sunday,Medium,1
+REQ1169,Scholarship Inquiry,Student,2024-03-17,Walk-in,High,Registrar,13,No,16.1,7,Completed,No,1,Sunday,Medium,1
+REQ1170,Certification,Staff,2024-06-12,Portal,Normal,IT Office,21,Yes,7.5,3,Completed,No,1,Wednesday,High,1
+REQ1171,Scholarship Inquiry,Student,2024-05-09,Walk-in,Low,Registrar,12,Yes,9.6,7,Completed,No,1,Thursday,Medium,1
+REQ1172,Scholarship Inquiry,Student,2024-06-04,Portal,Normal,IT Office,21,Yes,,7,Pending,,,Tuesday,High,
+REQ1173,Enrollment,Student,2024-02-20,Email,Low,Scholarship Office,23,Yes,11.4,4,Completed,Yes,5,Tuesday,High,1
+REQ1174,Records,Staff,2024-02-09,Portal,Low,Dean's Office,5,No,9.5,5,Completed,No,4,Friday,Low,1
+REQ1175,Records,Staff,2024-04-05,Portal,Normal,Registrar,19,Yes,9.4,5,Completed,No,2,Friday,High,1
+REQ1176,Records,Student,2024-02-11,Portal,Normal,Dean's Office,18,Yes,10.1,5,Completed,No,1,Sunday,High,1
+REQ1177,IT Support,Faculty,2024-05-18,Walk-in,Normal,Scholarship Office,9,Yes,,2,Pending,,,Saturday,Medium,
+REQ1178,Certification,Student,2024-05-15,Walk-in,Low,Scholarship Office,12,Yes,,3,Pending,,,Wednesday,Medium,
+REQ1179,Certification,Faculty,2024-01-01,Email,Low,Scholarship Office,17,Yes,6.6,3,Completed,Yes,5,Monday,High,1
+REQ1180,Enrollment,Faculty,2024-06-02,Portal,High,Scholarship Office,0,Yes,1.6,4,Completed,No,1,Sunday,Low,0
+REQ1181,Enrollment,Staff,2024-03-23,Portal,High,Scholarship Office,9,Yes,8.3,4,Completed,No,1,Saturday,Medium,1
+REQ1182,Enrollment,Faculty,2024-05-05,Portal,High,Scholarship Office,,Yes,,4,Cancelled,,,Sunday,,
+REQ1183,Scholarship Inquiry,Student,2024-01-05,Portal,Low,Registrar,6,Yes,10.7,7,Completed,No,3,Friday,Medium,1
+REQ1184,Records,Student,2024-01-29,Email,High,Dean's Office,13,Yes,,5,Pending,,,Monday,Medium,
+REQ1185,IT Support,Staff,2024-04-02,Walk-in,Normal,Registrar,25,No,9.7,2,Completed,No,2,Tuesday,High,1
+REQ1186,Certification,Faculty,2024-03-19,Walk-in,Normal,Scholarship Office,18,Yes,8,3,Completed,No,4,Tuesday,High,1
+REQ1187,IT Support,Student,2024-03-02,Portal,Normal,IT Office,19,No,11.6,2,Completed,Yes,3,Saturday,High,1
+REQ1188,Records,Faculty,2024-01-15,Walk-in,High,IT Office,20,Yes,13,5,Completed,No,3,Monday,High,1
+REQ1189,Records,Faculty,2024-03-02,Portal,Normal,Scholarship Office,10,No,9.7,5,Completed,No,4,Saturday,Medium,1
+REQ1190,Certification,Staff,2024-05-25,Email,Low,Scholarship Office,14,Yes,6,3,Completed,No,1,Saturday,Medium,1
+REQ1191,Scholarship Inquiry,Student,2024-01-21,Email,Low,Scholarship Office,14,No,,7,Pending,,,Sunday,Medium,
+REQ1192,Enrollment,Student,2024-01-22,Walk-in,Normal,Dean's Office,14,No,,4,Pending,,,Monday,Medium,
+REQ1193,Scholarship Inquiry,Student,2024-05-04,Portal,Normal,Dean's Office,21,Yes,11.9,7,Completed,No,1,Saturday,High,1
+REQ1194,Records,Faculty,2024-01-18,Email,Low,Registrar,6,Yes,,5,Pending,,,Thursday,Medium,
+REQ1195,Records,Staff,2024-05-16,Walk-in,Normal,Dean's Office,16,No,13.5,5,Completed,No,2,Thursday,High,1
+REQ1196,Scholarship Inquiry,Student,2024-02-02,Email,Low,Scholarship Office,15,Yes,10.4,7,Completed,No,1,Friday,Medium,1
+REQ1197,Enrollment,Staff,2024-02-02,Email,High,Dean's Office,25,Yes,11.8,4,Completed,No,3,Friday,High,1
+REQ1198,Enrollment,Staff,2024-06-17,Portal,High,IT Office,25,Yes,,4,Pending,,,Monday,High,
+REQ1199,Records,Staff,2024-05-01,Walk-in,Low,IT Office,23,Yes,9.5,5,Completed,Yes,3,Wednesday,High,1
+REQ1200,Enrollment,Faculty,2024-05-20,Portal,High,Scholarship Office,5,Yes,5.7,4,Completed,No,3,Monday,Low,1
+REQ1201,Enrollment,Faculty,2024-02-12,Walk-in,High,Dean's Office,21,Yes,,4,Cancelled,,,Monday,High,
+REQ1202,Certification,Staff,2024-03-08,Email,Low,Dean's Office,2,Yes,1,3,Completed,No,4,Friday,Low,0
+REQ1203,Certification,Staff,2024-05-15,Portal,Normal,Registrar,9,Yes,,3,Pending,,,Wednesday,Medium,
+REQ1204,IT Support,Faculty,2024-06-04,Portal,High,Registrar,16,Yes,7.1,2,Completed,No,1,Tuesday,High,1
+REQ1205,Scholarship Inquiry,Student,2024-04-18,Portal,Normal,IT Office,21,No,15.2,7,Completed,No,1,Thursday,High,1
+REQ1206,Records,Staff,2024-02-24,Portal,Normal,Scholarship Office,20,No,14.6,5,Completed,No,1,Saturday,High,1
+REQ1207,Enrollment,Faculty,2024-05-18,Walk-in,High,IT Office,19,Yes,8.6,4,Completed,No,1,Saturday,High,1
+REQ1208,IT Support,Staff,2024-06-25,Walk-in,Normal,Scholarship Office,10,Yes,3.9,2,Completed,Yes,2,Tuesday,Medium,1
+REQ1209,Certification,Student,2024-02-21,Portal,Normal,Scholarship Office,2,No,,3,Pending,,,Wednesday,Low,
+REQ1210,Enrollment,Student,2024-03-20,Portal,High,Scholarship Office,24,No,12.4,4,Completed,No,2,Wednesday,High,1
+REQ1211,Scholarship Inquiry,Staff,2024-04-12,Walk-in,High,Scholarship Office,7,Yes,10.9,7,Completed,Yes,3,Friday,Medium,1
+REQ1212,Certification,Student,2024-06-20,Walk-in,Normal,Dean's Office,21,No,13.2,3,Completed,No,3,Thursday,High,1
+REQ1213,Records,Staff,2024-06-15,Portal,Normal,Scholarship Office,9,Yes,10.2,5,Completed,No,4,Saturday,Medium,1
+REQ1214,Enrollment,Student,2024-04-05,Walk-in,Normal,Dean's Office,7,No,,4,Pending,,,Friday,Medium,
+REQ1215,IT Support,Faculty,2024-04-22,Portal,Low,Scholarship Office,25,Yes,,2,Pending,,,Monday,High,
+REQ1216,Records,Staff,2024-05-12,Portal,Low,Dean's Office,6,Yes,,5,Pending,,,Sunday,Medium,
+REQ1217,Enrollment,Staff,2024-04-25,Portal,Normal,Dean's Office,4,Yes,5.4,4,Completed,No,5,Thursday,Low,1
+REQ1218,Enrollment,Faculty,2024-01-31,Email,High,IT Office,0,Yes,1.9,4,Completed,Yes,3,Wednesday,Low,0
+REQ1219,Enrollment,Student,2024-03-04,Portal,Low,IT Office,1,Yes,,4,Pending,,,Monday,Low,
+REQ1220,Enrollment,Faculty,2024-02-27,Walk-in,Low,Registrar,7,No,9,4,Completed,No,1,Tuesday,Medium,1
+REQ1221,Enrollment,Student,2024-01-17,Email,Normal,IT Office,15,No,,4,Pending,,,Wednesday,Medium,
+REQ1222,Records,Student,2024-03-27,Walk-in,Low,IT Office,19,Yes,10.4,5,Completed,No,3,Wednesday,High,1
+REQ1223,Scholarship Inquiry,Staff,2024-01-06,Walk-in,Normal,Scholarship Office,24,No,16.9,7,Completed,No,3,Saturday,High,1
+REQ1224,Scholarship Inquiry,Faculty,2024-05-30,Walk-in,High,Registrar,2,Yes,8.1,7,Completed,Yes,2,Thursday,Low,1
+REQ1225,Records,Faculty,2024-05-21,Portal,Normal,IT Office,14,No,10.6,5,Completed,No,1,Tuesday,Medium,1
+REQ1226,Scholarship Inquiry,Faculty,2024-02-28,Walk-in,High,IT Office,13,Yes,11.4,7,Completed,Yes,4,Wednesday,Medium,1
+REQ1227,IT Support,Faculty,2024-05-30,Walk-in,Low,Dean's Office,20,Yes,7.4,2,Completed,No,4,Thursday,High,1
+REQ1228,IT Support,Student,2024-02-26,Walk-in,Low,Registrar,18,Yes,7.6,2,Completed,Yes,4,Monday,High,1
+REQ1229,Records,Staff,2024-01-02,Email,Low,Registrar,6,Yes,7.6,5,Completed,No,3,Tuesday,Medium,1
+REQ1230,IT Support,Staff,2024-01-19,Portal,Low,Registrar,22,Yes,11,2,Completed,No,4,Friday,High,1
+REQ1231,Records,Faculty,2024-06-10,Portal,High,Dean's Office,22,No,12.3,5,Completed,No,4,Monday,High,1
+REQ1232,IT Support,Staff,2024-01-16,Email,Low,Registrar,12,Yes,7.4,2,Completed,No,4,Tuesday,Medium,1
+REQ1233,Certification,Staff,2024-02-28,Walk-in,Normal,Registrar,15,No,11.5,3,Completed,No,2,Wednesday,Medium,1
+REQ1234,Records,Student,2024-01-18,Email,High,Dean's Office,12,No,9.1,5,Completed,No,1,Thursday,Medium,1
+REQ1235,Enrollment,Student,2024-01-09,Email,High,Registrar,7,Yes,,4,Cancelled,,,Tuesday,Medium,
+REQ1236,IT Support,Staff,2024-03-25,Portal,Low,Registrar,4,Yes,2.4,2,Completed,Yes,2,Monday,Low,1
+REQ1237,Certification,Faculty,2024-01-19,Portal,Low,Scholarship Office,20,Yes,8.4,3,Completed,Yes,1,Friday,High,1
+REQ1238,Records,Faculty,2024-05-11,Email,High,IT Office,22,No,,5,Pending,,,Saturday,High,
+REQ1239,IT Support,Student,2024-03-01,Walk-in,Normal,Registrar,0,No,5.8,2,Completed,No,2,Friday,Low,1
+REQ1240,Enrollment,Staff,2024-03-12,Portal,Normal,Dean's Office,24,Yes,11,4,Completed,No,1,Tuesday,High,1
+REQ1241,IT Support,Staff,2024-06-20,Walk-in,Low,Scholarship Office,24,Yes,8.1,2,Completed,No,4,Thursday,High,1
+REQ1242,Certification,Staff,2024-05-04,Portal,Low,IT Office,3,Yes,4.6,3,Completed,No,5,Saturday,Low,1
+REQ1243,Scholarship Inquiry,Student,2024-02-24,Walk-in,Low,IT Office,24,Yes,14.6,7,Completed,No,4,Saturday,High,1
+REQ1244,Scholarship Inquiry,Student,2024-05-18,Walk-in,High,Scholarship Office,13,Yes,13.5,7,Completed,No,5,Saturday,Medium,1
+REQ1245,Certification,Staff,2024-02-03,Walk-in,Normal,Dean's Office,7,No,,3,Pending,,,Saturday,Medium,
+REQ1246,Certification,Faculty,2024-05-26,Email,High,IT Office,5,No,,3,Pending,,,Sunday,Low,
+REQ1247,Records,Faculty,2024-05-27,Portal,High,IT Office,25,Yes,11.1,5,Completed,No,4,Monday,High,1
+REQ1248,Scholarship Inquiry,Student,2024-05-01,Walk-in,Normal,IT Office,22,Yes,10.3,7,Completed,No,2,Wednesday,High,1
+REQ1249,Records,Faculty,2024-03-03,Walk-in,High,Registrar,16,Yes,,5,Pending,,,Sunday,High,
+REQ1250,IT Support,Faculty,2024-05-01,Email,Low,Registrar,14,Yes,5.8,2,Completed,No,5,Wednesday,Medium,1
+REQ1251,Certification,Staff,2024-04-14,Email,High,Scholarship Office,1,Yes,2.6,3,Completed,No,4,Sunday,Low,0
+REQ1252,Records,Staff,2024-02-18,Walk-in,High,Scholarship Office,17,Yes,7.8,5,Completed,Yes,3,Sunday,High,1
+REQ1253,Certification,Faculty,2024-01-25,Walk-in,Normal,Dean's Office,7,No,6.8,3,Completed,No,5,Thursday,Medium,1
+REQ1254,Records,Student,2024-01-25,Portal,High,Dean's Office,3,Yes,,5,Pending,,,Thursday,Low,
+REQ1255,IT Support,Staff,2024-06-17,Portal,High,Scholarship Office,14,Yes,,2,Pending,,,Monday,Medium,
+REQ1256,IT Support,Faculty,2024-04-20,Email,Low,Dean's Office,4,Yes,1,2,Completed,Yes,1,Saturday,Low,0
+REQ1257,Enrollment,Staff,2024-03-31,Email,High,IT Office,25,No,12.7,4,Completed,No,2,Sunday,High,1
+REQ1258,Scholarship Inquiry,Staff,2024-04-18,Portal,Low,IT Office,14,Yes,12.2,7,Completed,Yes,4,Thursday,Medium,1
+REQ1259,Enrollment,Faculty,2024-04-15,Portal,Normal,Dean's Office,21,Yes,11.1,4,Completed,No,4,Monday,High,1
+REQ1260,Scholarship Inquiry,Faculty,2024-04-29,Portal,High,Dean's Office,16,No,,7,Pending,,,Monday,High,
+REQ1261,IT Support,Student,2024-01-14,Portal,Normal,Scholarship Office,17,Yes,7.8,2,Completed,No,1,Sunday,High,1
+REQ1262,Records,Faculty,2024-06-21,Walk-in,Low,Scholarship Office,19,Yes,9.7,5,Completed,No,4,Friday,High,1
+REQ1263,Certification,Staff,2024-06-16,Walk-in,Normal,Dean's Office,10,No,7.1,3,Completed,No,4,Sunday,Medium,1
+REQ1264,IT Support,Student,2024-06-14,Walk-in,Low,IT Office,24,No,9,2,Completed,No,1,Friday,High,1
+REQ1265,IT Support,Faculty,2024-01-26,Email,Low,Registrar,14,No,9.7,2,Completed,No,1,Friday,Medium,1
+REQ1266,Records,Staff,2024-01-16,Portal,Low,Dean's Office,19,Yes,,5,Pending,,,Tuesday,High,
+REQ1267,IT Support,Student,2024-04-13,Walk-in,Low,Scholarship Office,23,No,10,2,Completed,No,3,Saturday,High,1
+REQ1268,IT Support,Student,2024-03-27,Portal,High,Scholarship Office,16,Yes,5.3,2,Completed,Yes,3,Wednesday,High,1
+REQ1269,Records,Student,2024-01-28,Portal,Low,Dean's Office,13,No,13.1,5,Completed,Yes,1,Sunday,Medium,1
+REQ1270,IT Support,Staff,2024-03-04,Email,Low,Scholarship Office,17,Yes,6.8,2,Completed,No,5,Monday,High,1
+REQ1271,Scholarship Inquiry,Staff,2024-02-19,Walk-in,High,IT Office,14,Yes,,7,Pending,,,Monday,Medium,
+REQ1272,Scholarship Inquiry,Student,2024-02-18,Walk-in,Normal,Scholarship Office,5,Yes,7.2,7,Completed,No,5,Sunday,Low,1
+REQ1273,Scholarship Inquiry,Staff,2024-05-17,Portal,Low,Registrar,23,Yes,11.1,7,Completed,No,5,Friday,High,1
+REQ1274,Scholarship Inquiry,Student,2024-04-24,Walk-in,Normal,Registrar,,No,13.2,7,Completed,Yes,2,Wednesday,,1
+REQ1275,IT Support,Student,2024-02-05,Walk-in,High,IT Office,14,Yes,5.8,2,Completed,No,3,Monday,Medium,1
+REQ1276,Certification,Staff,2024-04-18,Portal,Low,Scholarship Office,8,Yes,4.7,3,Completed,No,5,Thursday,Medium,1
+REQ1277,Scholarship Inquiry,Staff,2024-02-16,Portal,Low,Scholarship Office,24,Yes,13.5,7,Completed,No,5,Friday,High,1
+REQ1278,Scholarship Inquiry,Student,2024-03-12,Email,Normal,Dean's Office,7,Yes,9.3,7,Completed,No,5,Tuesday,Medium,1
+REQ1279,IT Support,Staff,2024-04-28,Walk-in,High,Registrar,20,Yes,7.9,2,Completed,No,1,Sunday,High,1
+REQ1280,Enrollment,Faculty,2024-03-04,Portal,Low,Dean's Office,8,No,,4,Pending,,,Monday,Medium,
+REQ1281,IT Support,Student,2024-01-20,Walk-in,Normal,Dean's Office,24,Yes,10.5,2,Completed,No,4,Saturday,High,1
+REQ1282,Records,Student,2024-04-23,Walk-in,Low,Scholarship Office,24,No,14.4,5,Completed,No,2,Tuesday,High,1
+REQ1283,Scholarship Inquiry,Staff,2024-05-20,Portal,Low,Registrar,16,No,14.5,7,Completed,No,4,Monday,High,1
+REQ1284,Records,Staff,2024-01-26,Walk-in,Low,Dean's Office,15,Yes,7.9,5,Completed,No,3,Friday,Medium,1
+REQ1285,Scholarship Inquiry,Staff,2024-01-13,Walk-in,High,Scholarship Office,20,Yes,15.4,7,Completed,No,4,Saturday,High,1
+REQ1286,Enrollment,Faculty,2024-06-15,Email,High,IT Office,7,No,6.1,4,Completed,No,2,Saturday,Medium,1
+REQ1287,Certification,Staff,2024-05-18,Walk-in,Low,Registrar,8,No,,3,Pending,,,Saturday,Medium,
+REQ1288,Enrollment,Student,2024-01-04,Email,Low,Scholarship Office,14,Yes,7.7,4,Completed,No,5,Thursday,Medium,1
+REQ1289,IT Support,Staff,2024-01-24,Email,High,IT Office,2,Yes,4.2,2,Completed,No,5,Wednesday,Low,1
+REQ1290,IT Support,Staff,2024-03-01,Portal,Normal,Dean's Office,22,Yes,8,2,Completed,Yes,1,Friday,High,1
+REQ1291,Records,Student,2024-02-12,Walk-in,Low,Dean's Office,9,No,9.6,5,Completed,Yes,1,Monday,Medium,1
+REQ1292,Records,Student,2024-04-14,Walk-in,Normal,Dean's Office,7,Yes,5.6,5,Completed,No,2,Sunday,Medium,1
+REQ1293,IT Support,Faculty,2024-05-04,Email,High,IT Office,8,No,5.7,2,Completed,No,5,Saturday,Medium,1
+REQ1294,IT Support,Staff,2024-05-03,Portal,High,IT Office,10,Yes,,2,Cancelled,,,Friday,Medium,
+REQ1295,IT Support,Faculty,2024-02-24,Email,Normal,Dean's Office,10,Yes,,2,Pending,,,Saturday,Medium,
+REQ1296,Scholarship Inquiry,Student,2024-04-12,Email,High,Dean's Office,17,No,16.6,7,Completed,No,4,Friday,High,1
+REQ1297,Enrollment,Student,2024-01-16,Email,Low,IT Office,2,No,3.1,4,Completed,Yes,4,Tuesday,Low,0
+REQ1298,Scholarship Inquiry,Student,2024-02-12,Walk-in,Normal,Scholarship Office,4,No,7.7,7,Completed,No,2,Monday,Low,1
+REQ1299,Certification,Student,2024-04-07,Walk-in,Normal,Registrar,4,Yes,6.7,3,Completed,Yes,1,Sunday,Low,1
+REQ1300,Scholarship Inquiry,Student,2024-01-01,Walk-in,Normal,Dean's Office,7,No,11.8,7,Completed,No,4,Monday,Medium,1
+REQ1301,IT Support,Faculty,2024-04-09,Walk-in,Low,IT Office,12,Yes,,2,Pending,,,Tuesday,Medium,
+REQ1302,Scholarship Inquiry,Staff,2024-03-08,Portal,Low,Scholarship Office,22,Yes,12.9,7,Completed,No,3,Friday,High,1
+REQ1303,Records,Student,2024-04-26,Email,High,Scholarship Office,4,Yes,,5,Pending,,,Friday,Low,
+REQ1304,IT Support,Staff,2024-03-14,Portal,Normal,Scholarship Office,22,Yes,9.7,2,Completed,No,2,Thursday,High,1
+REQ1305,Enrollment,Student,2024-04-18,Email,High,Dean's Office,6,No,6.2,4,Completed,No,3,Thursday,Medium,1
+REQ1306,Scholarship Inquiry,Faculty,2024-06-27,Email,Normal,IT Office,2,Yes,,7,Pending,,,Thursday,Low,
+REQ1307,IT Support,Faculty,2024-05-22,Portal,High,Registrar,13,No,,2,Pending,,,Wednesday,Medium,
+REQ1308,Records,Faculty,2024-06-18,Portal,Normal,IT Office,13,Yes,,5,Pending,,,Tuesday,Medium,
+REQ1309,Records,Faculty,2024-05-04,Email,Low,IT Office,10,Yes,,5,Cancelled,,,Saturday,Medium,
+REQ1310,Scholarship Inquiry,Staff,2024-02-09,Walk-in,High,Scholarship Office,17,No,14.5,7,Completed,No,3,Friday,High,1
+REQ1311,IT Support,Faculty,2024-02-18,Walk-in,High,Registrar,14,Yes,,2,Pending,,,Sunday,Medium,
+REQ1312,Enrollment,Faculty,2024-03-16,Email,High,Dean's Office,13,Yes,6.5,4,Completed,No,1,Saturday,Medium,1
+REQ1313,Certification,Faculty,2024-02-25,Email,High,Dean's Office,1,No,6.1,3,Completed,No,5,Sunday,Low,1
+REQ1314,Records,Student,2024-01-15,Portal,Normal,Scholarship Office,6,Yes,,5,Cancelled,,,Monday,Medium,
+REQ1315,Certification,Faculty,2024-05-28,Portal,Low,Dean's Office,13,Yes,10.8,3,Completed,No,2,Tuesday,Medium,1
+REQ1316,Enrollment,Staff,2024-05-18,Walk-in,High,IT Office,12,No,,4,Pending,,,Saturday,Medium,
+REQ1317,Scholarship Inquiry,Student,2024-01-16,Walk-in,High,Scholarship Office,24,Yes,12.9,7,Completed,No,5,Tuesday,High,1
+REQ1318,Records,Staff,2024-03-21,Portal,Low,Registrar,18,Yes,,5,Pending,,,Thursday,High,
+REQ1319,Certification,Student,2024-01-15,Walk-in,Normal,IT Office,22,No,13.6,3,Completed,Yes,4,Monday,High,1
+REQ1320,Records,Staff,2024-01-13,Walk-in,Normal,Registrar,,Yes,4,5,Completed,No,4,Saturday,,0
+REQ1321,Certification,Staff,2024-05-29,Portal,High,Registrar,24,No,12.2,3,Completed,No,2,Wednesday,High,1
+REQ1322,IT Support,Staff,2024-05-02,Walk-in,High,IT Office,18,Yes,5.8,2,Completed,No,1,Thursday,High,1
+REQ1323,IT Support,Student,2024-05-08,Portal,Normal,Registrar,12,Yes,9.1,2,Completed,Yes,4,Wednesday,Medium,1
+REQ1324,Scholarship Inquiry,Staff,2024-05-15,Email,Low,Scholarship Office,15,Yes,14.5,7,Completed,No,4,Wednesday,Medium,1
+REQ1325,Enrollment,Staff,2024-02-10,Walk-in,Low,Scholarship Office,0,Yes,1.9,4,Completed,No,5,Saturday,Low,0
+REQ1326,Records,Student,2024-01-15,Portal,High,IT Office,11,Yes,7,5,Completed,No,4,Monday,Medium,1
+REQ1327,Enrollment,Staff,2024-05-10,Walk-in,Low,Dean's Office,9,Yes,,4,Cancelled,,,Friday,Medium,
+REQ1328,Certification,Student,2024-01-21,Email,High,Registrar,24,No,11.9,3,Completed,No,1,Sunday,High,1
+REQ1329,Scholarship Inquiry,Faculty,2024-02-17,Email,High,IT Office,12,Yes,12.4,7,Completed,No,4,Saturday,Medium,1
+REQ1330,IT Support,Staff,2024-01-18,Email,Normal,Registrar,,Yes,,2,Pending,,,Thursday,,
+REQ1331,IT Support,Student,2024-06-01,Portal,High,IT Office,17,No,,2,Pending,,,Saturday,High,
+REQ1332,Scholarship Inquiry,Faculty,2024-01-18,Portal,Low,Registrar,23,Yes,15.7,7,Completed,No,4,Thursday,High,1
+REQ1333,Records,Staff,2024-06-21,Email,Low,Dean's Office,23,Yes,11.5,5,Completed,Yes,3,Friday,High,1
+REQ1334,Enrollment,Faculty,2024-03-01,Walk-in,High,IT Office,17,Yes,10.7,4,Completed,No,1,Friday,High,1
+REQ1335,Certification,Staff,2024-04-13,Walk-in,Normal,Scholarship Office,25,Yes,8.8,3,Completed,No,4,Saturday,High,1
+REQ1336,Enrollment,Student,2024-01-31,Email,High,Dean's Office,19,Yes,,4,Pending,,,Wednesday,High,
+REQ1337,IT Support,Faculty,2024-05-25,Email,Low,Scholarship Office,7,Yes,5.5,2,Completed,No,1,Saturday,Medium,1
+REQ1338,Scholarship Inquiry,Faculty,2024-03-04,Walk-in,High,Dean's Office,15,Yes,10.2,7,Completed,No,1,Monday,Medium,1
+REQ1339,IT Support,Faculty,2024-05-28,Email,High,Scholarship Office,7,Yes,2.1,2,Completed,No,4,Tuesday,Medium,1
+REQ1340,IT Support,Faculty,2024-06-01,Walk-in,Low,Dean's Office,8,Yes,4.6,2,Completed,No,4,Saturday,Medium,1
+REQ1341,Certification,Staff,2024-01-11,Email,Normal,Registrar,13,No,8,3,Completed,No,1,Thursday,Medium,1
+REQ1342,Records,Student,2024-06-07,Walk-in,Low,Scholarship Office,15,Yes,,5,Pending,,,Friday,Medium,
+REQ1343,Records,Faculty,2024-01-21,Email,Normal,Registrar,0,Yes,3.4,5,Completed,No,5,Sunday,Low,0
+REQ1344,Certification,Student,2024-04-17,Walk-in,High,IT Office,12,No,7.8,3,Completed,No,5,Wednesday,Medium,1
+REQ1345,Scholarship Inquiry,Staff,2024-06-17,Email,Low,Registrar,10,Yes,11.6,7,Completed,Yes,1,Monday,Medium,1
+REQ1346,Enrollment,Student,2024-05-29,Portal,Low,Scholarship Office,21,Yes,,4,Pending,,,Wednesday,High,
+REQ1347,Scholarship Inquiry,Student,2024-05-24,Email,Normal,Dean's Office,21,Yes,14.3,7,Completed,No,1,Friday,High,1
+REQ1348,Enrollment,Staff,2024-05-13,Walk-in,Normal,Registrar,25,Yes,8.6,4,Completed,No,5,Monday,High,1
+REQ1349,Records,Faculty,2024-03-21,Walk-in,Low,Dean's Office,12,No,9.8,5,Completed,No,5,Thursday,Medium,1
+REQ1350,IT Support,Staff,2024-03-07,Email,High,IT Office,23,Yes,7.9,2,Completed,No,3,Thursday,High,1
+REQ1351,IT Support,Faculty,2024-02-22,Portal,Low,IT Office,5,No,,2,Pending,,,Thursday,Low,
+REQ1352,Scholarship Inquiry,Staff,2024-06-20,Email,High,Scholarship Office,14,Yes,12.7,7,Completed,No,5,Thursday,Medium,1
+REQ1353,Certification,Student,2024-03-21,Walk-in,High,Dean's Office,4,Yes,,3,Pending,,,Thursday,Low,
+REQ1354,Enrollment,Faculty,2024-03-02,Walk-in,High,Registrar,19,No,12.7,4,Completed,Yes,5,Saturday,High,1
+REQ1355,IT Support,Staff,2024-03-08,Email,High,Registrar,17,Yes,8.3,2,Completed,No,2,Friday,High,1
+REQ1356,Scholarship Inquiry,Staff,2024-04-11,Email,Normal,IT Office,0,No,7.2,7,Completed,No,4,Thursday,Low,1
+REQ1357,Certification,Staff,2024-02-03,Email,Normal,Dean's Office,12,Yes,,3,Pending,,,Saturday,Medium,
+REQ1358,Records,Faculty,2024-06-20,Walk-in,Low,Dean's Office,18,Yes,6.9,5,Completed,No,3,Thursday,High,1
+REQ1359,Certification,Student,2024-06-14,Email,Normal,IT Office,,No,,3,Cancelled,,,Friday,,
+REQ1360,Records,Staff,2024-03-17,Walk-in,Low,Registrar,21,Yes,11.6,5,Completed,No,3,Sunday,High,1
+REQ1361,Scholarship Inquiry,Staff,2024-04-27,Email,Low,IT Office,0,Yes,6,7,Completed,No,1,Saturday,Low,0
+REQ1362,Certification,Student,2024-03-21,Walk-in,High,Dean's Office,2,Yes,8.1,3,Completed,No,2,Thursday,Low,1
+REQ1363,Scholarship Inquiry,Student,2024-01-19,Portal,Low,Registrar,20,No,13.7,7,Completed,No,4,Friday,High,1
+REQ1364,Records,Student,2024-01-03,Walk-in,Normal,IT Office,13,Yes,,5,Cancelled,,,Wednesday,Medium,
+REQ1365,IT Support,Student,2024-04-27,Portal,Normal,Dean's Office,4,Yes,1.9,2,Completed,No,3,Saturday,Low,0
+REQ1366,IT Support,Staff,2024-06-08,Walk-in,Low,Dean's Office,14,No,9.2,2,Completed,No,5,Saturday,Medium,1
+REQ1367,Records,Staff,2024-05-24,Portal,High,Scholarship Office,5,Yes,6.9,5,Completed,No,5,Friday,Low,1
+REQ1368,Enrollment,Faculty,2024-01-26,Email,Low,Scholarship Office,1,No,4.7,4,Completed,Yes,5,Friday,Low,1
+REQ1369,Enrollment,Staff,2024-01-19,Walk-in,Low,IT Office,8,Yes,3.9,4,Completed,No,4,Friday,Medium,0
+REQ1370,IT Support,Staff,2024-05-17,Portal,Normal,Registrar,12,Yes,3.8,2,Completed,Yes,3,Friday,Medium,1
+REQ1371,IT Support,Student,2024-02-24,Portal,Normal,Registrar,10,No,7.8,2,Completed,Yes,4,Saturday,Medium,1
+REQ1372,Certification,Faculty,2024-05-09,Portal,High,Scholarship Office,6,No,8.7,3,Completed,No,1,Thursday,Medium,1
+REQ1373,Certification,Student,2024-03-08,Walk-in,Normal,Dean's Office,14,Yes,6.1,3,Completed,No,1,Friday,Medium,1
+REQ1374,IT Support,Staff,2024-02-03,Email,Low,Scholarship Office,10,Yes,3.8,2,Completed,Yes,2,Saturday,Medium,1
+REQ1375,Enrollment,Staff,2024-03-30,Email,Normal,IT Office,10,No,,4,Pending,,,Saturday,Medium,
+REQ1376,Certification,Staff,2024-01-18,Walk-in,Normal,Scholarship Office,24,Yes,12.6,3,Completed,No,1,Thursday,High,1
+REQ1377,Records,Faculty,2024-03-03,Walk-in,Normal,Registrar,12,Yes,8.4,5,Completed,No,3,Sunday,Medium,1
+REQ1378,Certification,Student,2024-04-04,Walk-in,Normal,IT Office,8,Yes,4.3,3,Completed,No,3,Thursday,Medium,1
+REQ1379,Certification,Faculty,2024-03-13,Walk-in,High,Registrar,24,Yes,6.7,3,Completed,Yes,3,Wednesday,High,1
+REQ1380,Certification,Staff,2024-02-10,Walk-in,Normal,IT Office,13,No,11.8,3,Completed,No,5,Saturday,Medium,1
+REQ1381,Scholarship Inquiry,Staff,2024-04-22,Portal,Low,Dean's Office,8,Yes,11.6,7,Completed,No,5,Monday,Medium,1
+REQ1382,Records,Student,2024-05-19,Portal,Normal,Scholarship Office,2,Yes,7.4,5,Completed,No,3,Sunday,Low,1
+REQ1383,IT Support,Student,2024-06-29,Email,High,Registrar,15,Yes,,2,Pending,,,Saturday,Medium,
+REQ1384,Enrollment,Student,2024-03-18,Walk-in,High,IT Office,0,No,5.9,4,Completed,No,1,Monday,Low,1
+REQ1385,Enrollment,Student,2024-06-05,Portal,High,Scholarship Office,23,Yes,10.4,4,Completed,No,1,Wednesday,High,1
+REQ1386,IT Support,Staff,2024-06-16,Portal,Low,Registrar,17,Yes,5.7,2,Completed,No,2,Sunday,High,1
+REQ1387,Scholarship Inquiry,Faculty,2024-05-15,Portal,Low,Dean's Office,1,Yes,6.7,7,Completed,No,4,Wednesday,Low,0
+REQ1388,Enrollment,Student,2024-01-03,Email,Normal,IT Office,,Yes,8.3,4,Completed,No,2,Wednesday,,1
+REQ1389,Certification,Student,2024-06-19,Walk-in,Low,Registrar,7,Yes,4.8,3,Completed,No,4,Wednesday,Medium,1
+REQ1390,Enrollment,Student,2024-05-21,Email,Low,Registrar,20,Yes,,4,Pending,,,Tuesday,High,
+REQ1391,Records,Staff,2024-03-17,Portal,Normal,Dean's Office,2,Yes,5.6,5,Completed,Yes,1,Sunday,Low,1
+REQ1392,Records,Staff,2024-06-18,Portal,Low,IT Office,24,Yes,14.8,5,Completed,No,3,Tuesday,High,1
+REQ1393,IT Support,Student,2024-01-27,Email,Normal,Scholarship Office,20,Yes,10.4,2,Completed,No,5,Saturday,High,1
+REQ1394,Scholarship Inquiry,Staff,2024-02-04,Portal,Normal,Registrar,1,Yes,,7,Pending,,,Sunday,Low,
+REQ1395,Scholarship Inquiry,Faculty,2024-03-08,Email,Low,IT Office,24,No,18.3,7,Completed,No,2,Friday,High,1
+REQ1396,Enrollment,Staff,2024-01-30,Portal,Low,IT Office,0,Yes,1.8,4,Completed,No,2,Tuesday,Low,0
+REQ1397,Scholarship Inquiry,Staff,2024-01-28,Walk-in,Normal,Dean's Office,7,Yes,,7,Cancelled,,,Sunday,Medium,
+REQ1398,Scholarship Inquiry,Student,2024-05-21,Portal,Low,Registrar,6,Yes,,7,Pending,,,Tuesday,Medium,
+REQ1399,Enrollment,Faculty,2024-02-09,Walk-in,Normal,Scholarship Office,0,Yes,2.9,4,Completed,Yes,1,Friday,Low,0

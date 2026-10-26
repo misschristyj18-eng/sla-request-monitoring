@@ -1,0 +1,54 @@
+{
+  "model_name": "Decision Tree (max_depth=4, min_samples_leaf=5, random_state=42)",
+  "model_version": "v1.0-midterm-examV2",
+  "trained_on": "2026-10-26",
+  "sklearn_version": "1.8.0",
+  "n_train": 237,
+  "n_test": 60,
+  "features": [
+    "Service_Type",
+    "Requester_Type",
+    "Requested_Channel",
+    "Priority",
+    "Assigned_Office",
+    "Required_Documents_Complete",
+    "Submission_Weekday",
+    "Queue_Length",
+    "SLA_Days"
+  ],
+  "target": "SLA_Breached (1 = Processing_Days > SLA_Days)",
+  "metrics_tree": {
+    "accuracy": 0.9333333333333333,
+    "precision": 0.9310344827586207,
+    "recall": 1.0,
+    "f1": 0.9642857142857143
+  },
+  "metrics_baseline": {
+    "accuracy": 0.9,
+    "precision": 0.9,
+    "recall": 1.0,
+    "f1": 0.9473684210526315
+  },
+  "confusion_matrix": [
+    [
+      2,
+      4
+    ],
+    [
+      0,
+      54
+    ]
+  ],
+  "feature_importance": {
+    "Queue_Length": 0.6344443015104889,
+    "Required_Documents_Complete": 0.30018048326549984,
+    "Service_Type": 0.04366261574770905,
+    "Requester_Type": 0.02171259947630219,
+    "Requested_Channel": 0.0,
+    "Priority": 0.0,
+    "Assigned_Office": 0.0,
+    "Submission_Weekday": 0.0,
+    "SLA_Days": 0.0
+  },
+  "breach_share_labeled": 0.9057239057239057
+}
