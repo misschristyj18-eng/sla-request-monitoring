@@ -58,6 +58,9 @@ QUEUE_COLORS = ["#b7d9e8", "#5fa6d9", "#0d4e87"]
 
 
 def risk_bg(value: int) -> str:
+    if pd.isna(value):
+        return ""
+    value = int(value)
     if value >= 80:
         return "background-color: #d32f2f; color: white; font-weight: 700;"
     if value >= 60:
@@ -235,10 +238,7 @@ def show(df: pd.DataFrame, role: str):
     display_df["Delay_Risk"] = (display_df["Delay_Risk"] * 100).round(0).astype(int)
     display_df.columns = ["Request_ID", "Service", "Office", "Delay risk (%)"]
 
-    styled = display_df.style.apply(
-        lambda row: [risk_bg(row["Delay risk (%)"]) if "Delay risk (%)" in row.index else "" for _ in [0]],
-        axis=1,
-    )
+    styled = display_df.style.map(risk_bg, subset=["Delay risk (%)"])
     s2.dataframe(styled, use_container_width=True, hide_index=True)
 
     st.write("")
