@@ -131,8 +131,16 @@ def show(df: pd.DataFrame, role: str):
     office_fig.update_traces(marker_line_color="#d75c2d", marker_line_width=1)
     c1.plotly_chart(office_fig, use_container_width=True)
 
-    q = open_df["Queue_Category"].astype(str).replace("nan", "Unknown").value_counts().reindex(["Low", "Medium", "High"]).dropna().reset_index()
-    q.columns = ["Queue_Category", "Open requests"]
+    q = (
+        open_df["Queue_Category"]
+        .astype(str)
+        .replace("nan", "Unknown")
+        .value_counts()
+        .reindex(["Low", "Medium", "High"])
+        .fillna(0)
+        .rename_axis("Queue_Category")
+        .reset_index(name="Open requests")
+    )
     qplot = px.bar(
         q,
         x="Queue_Category",
@@ -155,12 +163,13 @@ def show(df: pd.DataFrame, role: str):
     # Service volume chart
     s1, s2 = st.columns(2)
     service_counts = df["Service_Type"].value_counts().sort_values()
+    service_counts_df = service_counts.rename_axis("Service type").reset_index(name="Number of requests")
     svc_fig = px.bar(
-        service_counts.reset_index(),
-        y="index",
-        x="Service_Type",
+        service_counts_df,
+        x="Number of requests",
+        y="Service type",
         orientation="h",
-        labels={"Service_Type": "Number of requests", "index": "Service type"},
+        labels={"Number of requests": "Number of requests", "Service type": "Service type"},
         color_discrete_sequence=["#1f78b4"],
         template="simple_white",
     )
@@ -195,10 +204,7 @@ def show(df: pd.DataFrame, role: str):
     s2.dataframe(display_df.head(10), use_container_width=True, hide_index=True)
 
     st.write("")
-    info_msg = (
-        "Advice only - staff decide. [Review] [Override with reason]"
-    )
-    st.info(info_msg)
+    st.info("Advice only - staff decide. [Review] [Override with reason]")
 
     st.subheader("Staff decision (human in the loop)")
     if role != "Office Staff":
